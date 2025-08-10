@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Branch - Dorak.net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="government-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Official Government Service</span>
+                </div>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo" onclick="goHome()">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <div class="logo-text">
+                            <h1>Dorak.net</h1>
+                            <p>Digital Queue Management System</p>
+                        </div>
+                    </div>
+                    <div class="egypt-emblem">
+                        <i class="fas fa-eagle" aria-hidden="true"></i>
+                        <span>Arab Republic of Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="companies.html">Select Service</a></li>
+                <li aria-current="page">Select Branch</li>
+            </ol>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="page-content">
+            <div class="page-header">
+                <h1 id="companyTitle">Select Branch</h1>
+                <p>Choose the most convenient branch location for your appointment</p>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="branchSearch" placeholder="Search branches by name or location...">
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterByGovernorate('all')">All Locations</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('cairo')">Cairo</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('giza')">Giza</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('alexandria')">Alexandria</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('luxor')">Luxor</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('aswan')">Aswan</button>
+                </div>
+            </div>
+
+            <!-- Branches Container -->
+            <div class="branches-container" id="branchesContainer">
+                <!-- Branches will be populated by JavaScript -->
+            </div>
+
+            <div class="help-section">
+                <div class="help-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="help-content">
+                        <h3>Can't Find Your Location?</h3>
+                        <p>If you can't find a branch in your area, contact our support team for assistance with alternative locations.</p>
+                        <a href="tel:16000" class="help-link">Call 16000 for help</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Government Links</h3>
+                    <ul>
+                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external">Egypt.gov.eg</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="companies.html">Book Appointment</a></li>
+                        <li><a href="status.html">Check Status</a></li>
+                        <li><a href="index.html#support">Support</a></li>
+                        <li><a href="admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Digital Government Services</p>
+                        <p>Cairo, Arab Republic of Egypt</p>
+                        <p>Phone: <a href="tel:16000">16000</a></p>
+                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

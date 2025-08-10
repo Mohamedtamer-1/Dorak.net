@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorak.net - Digital Queue Management System</title>
+    <meta name="description" content="Official Egyptian government digital queue management system for public services">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="government-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Official Government Service</span>
+                </div>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo" onclick="goHome()">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <div class="logo-text">
+                            <h1>Dorak.net</h1>
+                            <p>Digital Queue Management System</p>
+                        </div>
+                    </div>
+                    <div class="egypt-emblem">
+                        <i class="fas fa-eagle" aria-hidden="true"></i>
+                        <span>Arab Republic of Egypt</span>
+                    </div>
+                </div>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#services" class="nav-link">Services</a></li>
+                        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                        <li><a href="#support" class="nav-link">Support</a></li>
+                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="announcement-banner">
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                            <span>New: Real-time queue updates now available</span>
+                        </div>
+                        
+                        <h1 class="hero-title">Skip the Line, Save Your Time</h1>
+                        <p class="hero-subtitle">
+                            Book your appointment online for government services across Egypt. 
+                            Get real-time updates and avoid waiting in long queues.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50K+</span>
+                                <span class="stat-label">Citizens Served</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Government Services</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2hrs</span>
+                                <span class="stat-label">Average Time Saved</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cta-section">
+                            <button class="cta-primary" onclick="startBooking()">
+                                <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+                                Book Appointment Now
+                            </button>
+                            <p class="cta-description">Free service • No registration required • Instant confirmation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <div class="service-preview">
+                            <div class="preview-header">
+                                <h3>Available Services</h3>
+                            </div>
+                            <div class="service-grid">
+                                <div class="service-item">
+                                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                                    <span>Electricity</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-tint" aria-hidden="true"></i>
+                                    <span>Water</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-fire" aria-hidden="true"></i>
+                                    <span>Gas</span>
+                                </div>
+                                <div class="service-item">
+                                    <i class="fas fa-phone" aria-hidden="true"></i>
+                                    <span>Telecom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="services-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Government Services</h2>
+                        <p>Access essential government services with our digital queue management system</p>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon electricity">
+                                <i class="fas fa-bolt" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Electricity Services</h3>
+                                <p>Manage your electricity connections, bill payments, and service requests efficiently.</p>
+                                <ul class="service-features">
+                                    <li>New connection applications</li>
+                                    <li>Bill payment and inquiries</li>
+                                    <li>Meter reading services</li>
+                                    <li>Technical support requests</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon water">
+                                <i class="fas fa-tint" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Water & Wastewater</h3>
+                                <p>Handle water service applications, billing, and maintenance requests.</p>
+                                <ul class="service-features">
+                                    <li>Water connection services</li>
+                                    <li>Billing and payment services</li>
+                                    <li>Quality testing requests</li>
+                                    <li>Maintenance and repairs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon gas">
+                                <i class="fas fa-fire" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Natural Gas</h3>
+                                <p>Natural gas connection services and safety inspections for residential and commercial use.</p>
+                                <ul class="service-features">
+                                    <li>Gas connection applications</li>
+                                    <li>Safety inspections</li>
+                                    <li>Meter installations</li>
+                                    <li>Emergency services</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon telecom">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Telecommunications</h3>
+                                <p>Landline services, internet connections, and technical support for communication needs.</p>
+                                <ul class="service-features">
+                                    <li>Landline installations</li>
+                                    <li>Internet service setup</li>
+                                    <li>Technical support</li>
+                                    <li>Service upgrades</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon internet">
+                                <i class="fas fa-wifi" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Internet Services</h3>
+                                <p>High-speed internet connections and digital infrastructure services.</p>
+                                <ul class="service-features">
+                                    <li>Broadband connections</li>
+                                    <li>Speed upgrades</li>
+                                    <li>Technical troubleshooting</li>
+                                    <li>Business solutions</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card" tabindex="0">
+                            <div class="service-icon test">
+                                <i class="fas fa-flask" aria-hidden="true"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Test Services</h3>
+                                <p>Testing and quality assurance services for various government applications.</p>
+                                <ul class="service-features">
+                                    <li>Service testing</li>
+                                    <li>Quality assurance</li>
+                                    <li>Performance monitoring</li>
+                                    <li>System validation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section id="how-it-works" class="how-it-works-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>How It Works</h2>
+                        <p>Simple steps to book your appointment and save time</p>
+                    </div>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Choose Service</h3>
+                                <p>Select the government service you need from our comprehensive list of available options.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Select Branch</h3>
+                                <p>Pick the most convenient branch location based on your area and current queue status.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Book Appointment</h3>
+                                <p>Fill in your details and get an instant queue number with estimated waiting time.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Track Status</h3>
+                                <p>Monitor your queue position in real-time and receive notifications when it's your turn.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trust Section -->
+            <section class="trust-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Why Choose Dorak.net</h2>
+                        <p>Trusted by thousands of Egyptian citizens for reliable government services</p>
+                    </div>
+                    
+                    <div class="trust-features">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-check" aria-hidden="true"></i>
+                            <h3>Secure & Official</h3>
+                            <p>Official government platform with bank-level security to protect your personal information.</p>
+                        </div>
+                        
+                        <div class="trust-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <h3>Real-Time Updates</h3>
+                            <p>Get live updates on queue status and estimated waiting times for better planning.</p>
+                        </div>
+                        
+                        <div class="trust-item">
+                            <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                            <h3>Mobile Friendly</h3>
+                            <p>Access services from any device, anywhere, anytime with our responsive design.</p>
+                        </div>
+                        
+                        <div class="trust-item">
+                            <i class="fas fa-headset" aria-hidden="true"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Round-the-clock customer support to help you with any questions or issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="support-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2>Need Help?</h2>
+                        <p>We're here to assist you with any questions or technical support</p>
+                    </div>
+                    
+                    <div class="support-grid">
+                        <div class="support-card">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <h3>Call Center</h3>
+                            <p>Speak directly with our support team for immediate assistance with your booking or technical issues.</p>
+                            <a href="tel:16000" class="support-link">16000</a>
+                        </div>
+                        
+                        <div class="support-card">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <h3>Email Support</h3>
+                            <p>Send us your questions and we'll respond within 24 hours with detailed solutions.</p>
+                            <a href="mailto:info@dorak.gov.eg" class="support-link">info@dorak.gov.eg</a>
+                        </div>
+                        
+                        <div class="support-card">
+                            <i class="fas fa-question-circle" aria-hidden="true"></i>
+                            <h3>FAQ</h3>
+                            <p>Find answers to commonly asked questions about our services and booking process.</p>
+                            <a href="#faq" class="support-link">View FAQ</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Government Links</h3>
+                    <ul>
+                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external">Egypt.gov.eg</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="companies.html">Book Appointment</a></li>
+                        <li><a href="status.html">Check Status</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Digital Government Services</p>
+                        <p>Cairo, Arab Republic of Egypt</p>
+                        <p>Phone: <a href="tel:16000">16000</a></p>
+                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <div class="footer-badges">
+                    <div class="badge">
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
+                        <span>ISO Certified</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <span>Secure</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

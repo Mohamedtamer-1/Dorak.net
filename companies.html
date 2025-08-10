@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Service - Dorak.net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="government-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Official Government Service</span>
+                </div>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo" onclick="goHome()">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <div class="logo-text">
+                            <h1>Dorak.net</h1>
+                            <p>Digital Queue Management System</p>
+                        </div>
+                    </div>
+                    <div class="egypt-emblem">
+                        <i class="fas fa-eagle" aria-hidden="true"></i>
+                        <span>Arab Republic of Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li aria-current="page">Select Service</li>
+            </ol>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="page-section">
+            <div class="section-container">
+                <div class="page-header">
+                    <h2>Select Government Service</h2>
+                    <p>Choose the service you need to book your appointment</p>
+                </div>
+
+                <div class="service-providers-grid">
+                    <div class="provider-card" data-company="electricity" onclick="selectCompany('electricity', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon electricity">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Electricity Services</h3>
+                            <p class="provider-subtitle">Egyptian Electricity Holding Company</p>
+                            <p class="provider-description">
+                                Manage electricity connections, bill payments, meter readings, and technical support requests.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">25</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">80min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="provider-card" data-company="water" onclick="selectCompany('water', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon water">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Water & Wastewater</h3>
+                            <p class="provider-subtitle">Water & Wastewater Services</p>
+                            <p class="provider-description">
+                                Water connection services, billing, quality testing, and maintenance requests.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">24</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">80min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="provider-card" data-company="gas" onclick="selectCompany('gas', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon gas">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Natural Gas</h3>
+                            <p class="provider-subtitle">Egyptian Natural Gas Company</p>
+                            <p class="provider-description">
+                                Gas connection applications, safety inspections, meter installations, and emergency services.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">26</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">87min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="provider-card" data-company="telecom" onclick="selectCompany('telecom', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon telecom">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Telecommunications</h3>
+                            <p class="provider-subtitle">Telecom Egypt Services</p>
+                            <p class="provider-description">
+                                Landline installations, internet service setup, technical support, and service upgrades.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">40</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">133min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="provider-card" data-company="internet" onclick="selectCompany('internet', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon internet">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Internet Services</h3>
+                            <p class="provider-subtitle">Internet Service Providers</p>
+                            <p class="provider-description">
+                                Broadband connections, speed upgrades, technical troubleshooting, and business solutions.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">33</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">110min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="provider-card" data-company="test" onclick="selectCompany('test', event)" tabindex="0">
+                        <div class="provider-header">
+                            <div class="provider-icon test">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="provider-badge">
+                                <i class="fas fa-check"></i>
+                                <span>Available</span>
+                            </div>
+                        </div>
+                        <div class="provider-content">
+                            <h3>Test Company</h3>
+                            <p class="provider-subtitle">Test Company Services</p>
+                            <p class="provider-description">
+                                Testing and quality assurance services for various government applications and systems.
+                            </p>
+                            <div class="provider-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Branches</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">22</span>
+                                    <span class="stat-label">In Queue</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">44min</span>
+                                    <span class="stat-label">Avg Wait</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="provider-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-card">
+                        <i class="fas fa-question-circle"></i>
+                        <div class="help-content">
+                            <h3>Need Help Choosing?</h3>
+                            <p>Not sure which service you need? Our support team can help you find the right government service for your needs.</p>
+                            <a href="tel:16000" class="help-link">Call 16000 for assistance</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Government Links</h3>
+                    <ul>
+                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external">Egypt.gov.eg</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="companies.html">Book Appointment</a></li>
+                        <li><a href="status.html">Check Status</a></li>
+                        <li><a href="index.html#support">Support</a></li>
+                        <li><a href="admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Digital Government Services</p>
+                        <p>Cairo, Arab Republic of Egypt</p>
+                        <p>Phone: <a href="tel:16000">16000</a></p>
+                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

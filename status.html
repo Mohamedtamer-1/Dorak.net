@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status - Dorak.net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="government-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Official Government Service</span>
+                </div>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo" onclick="goHome()">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <div class="logo-text">
+                            <h1>Dorak.net</h1>
+                            <p>Digital Queue Management System</p>
+                        </div>
+                    </div>
+                    <div class="egypt-emblem">
+                        <i class="fas fa-eagle" aria-hidden="true"></i>
+                        <span>Arab Republic of Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="companies.html">Select Service</a></li>
+                <li><a href="branches.html">Select Branch</a></li>
+                <li><a href="booking.html">Book Appointment</a></li>
+                <li aria-current="page">Booking Status</li>
+            </ol>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="status-container">
+            <!-- Success Message -->
+            <div class="success-banner">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="success-content">
+                    <h2>Booking Confirmed Successfully!</h2>
+                    <p>Your appointment has been scheduled. Please keep this information for your records.</p>
+                </div>
+            </div>
+
+            <!-- Queue Status Card -->
+            <div class="status-card queue-status">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Queue Status</h3>
+                    <button class="refresh-btn" onclick="refreshStatus()" title="Refresh Status">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+                
+                <div class="queue-info">
+                    <div class="queue-numbers">
+                        <div class="queue-item current">
+                            <span class="queue-label">Currently Serving</span>
+                            <span class="queue-number" id="currentServing">15</span>
+                        </div>
+                        <div class="queue-item your">
+                            <span class="queue-label">Your Number</span>
+                            <span class="queue-number highlight" id="yourNumber">23</span>
+                        </div>
+                    </div>
+                    
+                    <div class="queue-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="stat-number" id="peopleAhead">8</span>
+                                <span class="stat-label">People Ahead</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-hourglass-half"></i>
+                            <div>
+                                <span class="stat-number" id="estimatedWait">80</span>
+                                <span class="stat-label">Est. Wait (min)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <p class="progress-text">You're 65% closer to being served</p>
+            </div>
+
+            <!-- Booking Details Card -->
+            <div class="status-card booking-details">
+                <div class="card-header">
+                    <h3><i class="fas fa-info-circle"></i> Booking Details</h3>
+                </div>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Full Name</span>
+                        <span class="detail-value" id="userName">John Doe</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Phone Number</span>
+                        <span class="detail-value" id="userPhone">01234567890</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Service Type</span>
+                        <span class="detail-value" id="serviceType">New Connection</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Branch Location</span>
+                        <span class="detail-value" id="branchLocation">Cairo Main Branch</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Booking Date</span>
+                        <span class="detail-value" id="bookingDate">2024-01-15 10:30 AM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Instructions -->
+            <div class="status-card instructions">
+                <div class="card-header">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Important Instructions</h3>
+                </div>
+                
+                <div class="instruction-list">
+                    <div class="instruction-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Arrive on Time</strong>
+                            <p>Please arrive 10 minutes before your estimated time to avoid missing your turn.</p>
+                        </div>
+                    </div>
+                    <div class="instruction-item">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <strong>Bring Required Documents</strong>
+                            <p>Don't forget to bring your National ID and any relevant documents for your service.</p>
+                        </div>
+                    </div>
+                    <div class="instruction-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <strong>Keep This Page Open</strong>
+                            <p>Monitor your queue status in real-time. You'll receive notifications when it's almost your turn.</p>
+                        </div>
+                    </div>
+                    <div class="instruction-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Check Your Email</strong>
+                            <p>A confirmation email has been sent with all your booking details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i>
+                    Print Details
+                </button>
+                <button class="btn-secondary" onclick="bookAnother()">
+                    <i class="fas fa-plus"></i>
+                    Book Another
+                </button>
+                <button class="btn-secondary" onclick="goHome()">
+                    <i class="fas fa-home"></i>
+                    Go Home
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Government Links</h3>
+                    <ul>
+                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external">Egypt.gov.eg</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="companies.html">Book Appointment</a></li>
+                        <li><a href="status.html">Check Status</a></li>
+                        <li><a href="index.html#support">Support</a></li>
+                        <li><a href="admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Digital Government Services</p>
+                        <p>Cairo, Arab Republic of Egypt</p>
+                        <p>Phone: <a href="tel:16000">16000</a></p>
+                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Load your script -->
+    <script src="script.js"></script>
+</body>
+</html>

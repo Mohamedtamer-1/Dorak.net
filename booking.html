@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Dorak.net</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Add EmailJS SDK FIRST -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="government-badge">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <span>Official Government Service</span>
+                </div>
+                <div class="header-controls">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-section">
+                    <div class="logo" onclick="goHome()">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                        <div class="logo-text">
+                            <h1>Dorak.net</h1>
+                            <p>Digital Queue Management System</p>
+                        </div>
+                    </div>
+                    <div class="egypt-emblem">
+                        <i class="fas fa-eagle" aria-hidden="true"></i>
+                        <span>Arab Republic of Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="companies.html">Select Service</a></li>
+                <li><a href="branches.html">Select Branch</a></li>
+                <li aria-current="page">Book Appointment</li>
+            </ol>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="booking-container">
+            <!-- Branch Information Card -->
+            <div class="branch-info-card">
+                <div class="branch-header">
+                    <div class="branch-info">
+                        <div id="branchIcon" class="provider-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 id="selectedBranch">Selected Branch</h3>
+                        <p id="selectedCompany">Selected Company</p>
+                    </div>
+                </div>
+                
+                <div class="branch-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="currentNumber">0</span>
+                        <span class="stat-label">Current</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="waitingCount">0</span>
+                        <span class="stat-label">Waiting</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="estimatedTime">0</span>
+                        <span class="stat-label">Est. Time (min)</span>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Important:</strong> Please arrive 10 minutes before your estimated time. 
+                        You will receive real-time updates on your queue position.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form Card -->
+            <div class="booking-form-card">
+                <h3>Complete Your Booking</h3>
+                
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="fullName">
+                            <i class="fas fa-user"></i>
+                            Full Name
+                        </label>
+                        <input type="text" id="fullName" name="fullName" required 
+                               placeholder="Enter your full name as in ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nationalId">
+                            <i class="fas fa-id-card"></i>
+                            National ID
+                        </label>
+                        <input type="text" id="nationalId" name="nationalId" required 
+                               placeholder="14-digit National ID number" maxlength="14">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">
+                            <i class="fas fa-phone"></i>
+                            Phone Number
+                        </label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required 
+                               placeholder="01XXXXXXXXX" maxlength="11">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            Email Address
+                        </label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="Enter your email address">
+                        <small class="email-note">You will receive a confirmation email with your appointment details</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">
+                            <i class="fas fa-cogs"></i>
+                            Service Type
+                        </label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="">Select service type</option>
+                            <option value="new-connection">New Connection</option>
+                            <option value="bill-payment">Bill Payment</option>
+                            <option value="technical-support">Technical Support</option>
+                            <option value="maintenance">Maintenance Request</option>
+                            <option value="complaint">File Complaint</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Government Links</h3>
+                    <ul>
+                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external">Egypt.gov.eg</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="companies.html">Book Appointment</a></li>
+                        <li><a href="status.html">Check Status</a></li>
+                        <li><a href="index.html#support">Support</a></li>
+                        <li><a href="admin.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <address>
+                        <p>Digital Government Services</p>
+                        <p>Cairo, Arab Republic of Egypt</p>
+                        <p>Phone: <a href="tel:16000">16000</a></p>
+                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Load your script AFTER EmailJS -->
+    <script src="script.js"></script>
+</body>
+</html>
