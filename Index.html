@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,11 @@
     <meta name="description" content="Official Egyptian government digital queue management system for public services">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Added Google Fonts for Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link" data-en="Skip to main content" data-ar="انتقل إلى المحتوى الرئيسي">Skip to main content</a>
     
     <div class="container">
         <!-- Header -->
@@ -17,9 +19,13 @@
             <div class="header-top">
                 <div class="government-badge">
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Official Government Service</span>
+                    <span data-en="Official Government Service" data-ar="خدمة حكومية رسمية">Official Government Service</span>
                 </div>
                 <div class="header-controls">
+                    <!-- Added language toggle button -->
+                    <button id="languageToggle" class="language-toggle" title="Switch language" aria-label="Switch between Arabic and English">
+                        <span class="lang-text" data-en="عربي" data-ar="English">عربي</span>
+                    </button>
                     <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                         <i class="fas fa-moon" aria-hidden="true"></i>
@@ -32,20 +38,20 @@
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div class="logo-text">
                             <h1>Dorak.net</h1>
-                            <p>Digital Queue Management System</p>
+                            <p data-en="Digital Queue Management System" data-ar="نظام إدارة الطوابير الرقمي">Digital Queue Management System</p>
                         </div>
                     </div>
                     <div class="egypt-emblem">
                         <i class="fas fa-eagle" aria-hidden="true"></i>
-                        <span>Arab Republic of Egypt</span>
+                        <span data-en="Arab Republic of Egypt" data-ar="جمهورية مصر العربية">Arab Republic of Egypt</span>
                     </div>
                 </div>
                 <nav class="main-nav" aria-label="Main navigation">
                     <ul>
-                        <li><a href="#services" class="nav-link">Services</a></li>
-                        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                        <li><a href="#support" class="nav-link">Support</a></li>
-                        <li><a href="admin.html" class="nav-link">Admin</a></li>
+                        <li><a href="#services" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#how-it-works" class="nav-link" data-en="How It Works" data-ar="كيف يعمل">How It Works</a></li>
+                        <li><a href="#support" class="nav-link" data-en="Support" data-ar="الدعم">Support</a></li>
+                        <li><a href="admin.html" class="nav-link" data-en="Admin" data-ar="الإدارة">Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -59,11 +65,11 @@
                     <div class="hero-content">
                         <div class="announcement-banner">
                             <i class="fas fa-bullhorn" aria-hidden="true"></i>
-                            <span>New: Real-time queue updates now available</span>
+                            <span data-en="New: Real-time queue updates now available" data-ar="جديد: تحديثات الطوابير المباشرة متاحة الآن">New: Real-time queue updates now available</span>
                         </div>
                         
-                        <h1 class="hero-title">Skip the Line, Save Your Time</h1>
-                        <p class="hero-subtitle">
+                        <h1 class="hero-title" data-en="Skip the Line, Save Your Time" data-ar="تخطى الطوابير، وفر وقتك">Skip the Line, Save Your Time</h1>
+                        <p class="hero-subtitle" data-en="Book your appointment online for government services across Egypt. Get real-time updates and avoid waiting in long queues." data-ar="احجز موعدك عبر الإنترنت للخدمات الحكومية في جميع أنحاء مصر. احصل على تحديثات مباشرة وتجنب الانتظار في الطوابير الطويلة.">
                             Book your appointment online for government services across Egypt. 
                             Get real-time updates and avoid waiting in long queues.
                         </p>
@@ -71,48 +77,48 @@
                         <div class="hero-stats">
                             <div class="stat-item">
                                 <span class="stat-number">50K+</span>
-                                <span class="stat-label">Citizens Served</span>
+                                <span class="stat-label" data-en="Citizens Served" data-ar="مواطن تم خدمته">Citizens Served</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">15+</span>
-                                <span class="stat-label">Government Services</span>
+                                <span class="stat-label" data-en="Government Services" data-ar="خدمة حكومية">Government Services</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">2hrs</span>
-                                <span class="stat-label">Average Time Saved</span>
+                                <span class="stat-number" data-en="2hrs" data-ar="ساعتان">2hrs</span>
+                                <span class="stat-label" data-en="Average Time Saved" data-ar="متوسط الوقت الموفر">Average Time Saved</span>
                             </div>
                         </div>
                         
                         <div class="cta-section">
                             <button class="cta-primary" onclick="startBooking()">
                                 <i class="fas fa-calendar-plus" aria-hidden="true"></i>
-                                Book Appointment Now
+                                <span data-en="Book Appointment Now" data-ar="احجز موعد الآن">Book Appointment Now</span>
                             </button>
-                            <p class="cta-description">Free service • No registration required • Instant confirmation</p>
+                            <p class="cta-description" data-en="Free service • No registration required • Instant confirmation" data-ar="خدمة مجانية • لا يتطلب تسجيل • تأكيد فوري">Free service • No registration required • Instant confirmation</p>
                         </div>
                     </div>
                     
                     <div class="hero-visual">
                         <div class="service-preview">
                             <div class="preview-header">
-                                <h3>Available Services</h3>
+                                <h3 data-en="Available Services" data-ar="الخدمات المتاحة">Available Services</h3>
                             </div>
                             <div class="service-grid">
                                 <div class="service-item">
                                     <i class="fas fa-bolt" aria-hidden="true"></i>
-                                    <span>Electricity</span>
+                                    <span data-en="Electricity" data-ar="الكهرباء">Electricity</span>
                                 </div>
                                 <div class="service-item">
                                     <i class="fas fa-tint" aria-hidden="true"></i>
-                                    <span>Water</span>
+                                    <span data-en="Water" data-ar="المياه">Water</span>
                                 </div>
                                 <div class="service-item">
                                     <i class="fas fa-fire" aria-hidden="true"></i>
-                                    <span>Gas</span>
+                                    <span data-en="Gas" data-ar="الغاز">Gas</span>
                                 </div>
                                 <div class="service-item">
                                     <i class="fas fa-phone" aria-hidden="true"></i>
-                                    <span>Telecom</span>
+                                    <span data-en="Telecom" data-ar="الاتصالات">Telecom</span>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +130,8 @@
             <section id="services" class="services-section">
                 <div class="section-container">
                     <div class="section-header">
-                        <h2>Government Services</h2>
-                        <p>Access essential government services with our digital queue management system</p>
+                        <h2 data-en="Government Services" data-ar="الخدمات الحكومية">Government Services</h2>
+                        <p data-en="Access essential government services with our digital queue management system" data-ar="الوصول إلى الخدمات الحكومية الأساسية من خلال نظام إدارة الطوابير الرقمي">Access essential government services with our digital queue management system</p>
                     </div>
                     
                     <div class="services-grid">
@@ -134,13 +140,13 @@
                                 <i class="fas fa-bolt" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Electricity Services</h3>
-                                <p>Manage your electricity connections, bill payments, and service requests efficiently.</p>
+                                <h3 data-en="Electricity Services" data-ar="خدمات الكهرباء">Electricity Services</h3>
+                                <p data-en="Manage your electricity connections, bill payments, and service requests efficiently." data-ar="إدارة توصيلات الكهرباء ودفع الفواتير وطلبات الخدمة بكفاءة.">Manage your electricity connections, bill payments, and service requests efficiently.</p>
                                 <ul class="service-features">
-                                    <li>New connection applications</li>
-                                    <li>Bill payment and inquiries</li>
-                                    <li>Meter reading services</li>
-                                    <li>Technical support requests</li>
+                                    <li data-en="New connection applications" data-ar="طلبات التوصيل الجديدة">New connection applications</li>
+                                    <li data-en="Bill payment and inquiries" data-ar="دفع الفواتير والاستفسارات">Bill payment and inquiries</li>
+                                    <li data-en="Meter reading services" data-ar="خدمات قراءة العداد">Meter reading services</li>
+                                    <li data-en="Technical support requests" data-ar="طلبات الدعم الفني">Technical support requests</li>
                                 </ul>
                             </div>
                         </div>
@@ -150,13 +156,13 @@
                                 <i class="fas fa-tint" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Water & Wastewater</h3>
-                                <p>Handle water service applications, billing, and maintenance requests.</p>
+                                <h3 data-en="Water & Wastewater" data-ar="المياه والصرف الصحي">Water & Wastewater</h3>
+                                <p data-en="Handle water service applications, billing, and maintenance requests." data-ar="التعامل مع طلبات خدمات المياه والفوترة وطلبات الصيانة.">Handle water service applications, billing, and maintenance requests.</p>
                                 <ul class="service-features">
-                                    <li>Water connection services</li>
-                                    <li>Billing and payment services</li>
-                                    <li>Quality testing requests</li>
-                                    <li>Maintenance and repairs</li>
+                                    <li data-en="Water connection services" data-ar="خدمات توصيل المياه">Water connection services</li>
+                                    <li data-en="Billing and payment services" data-ar="خدمات الفوترة والدفع">Billing and payment services</li>
+                                    <li data-en="Quality testing requests" data-ar="طلبات اختبار الجودة">Quality testing requests</li>
+                                    <li data-en="Maintenance and repairs" data-ar="الصيانة والإصلاحات">Maintenance and repairs</li>
                                 </ul>
                             </div>
                         </div>
@@ -166,13 +172,13 @@
                                 <i class="fas fa-fire" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Natural Gas</h3>
-                                <p>Natural gas connection services and safety inspections for residential and commercial use.</p>
+                                <h3 data-en="Natural Gas" data-ar="الغاز الطبيعي">Natural Gas</h3>
+                                <p data-en="Natural gas connection services and safety inspections for residential and commercial use." data-ar="خدمات توصيل الغاز الطبيعي وفحوصات السلامة للاستخدام السكني والتجاري.">Natural gas connection services and safety inspections for residential and commercial use.</p>
                                 <ul class="service-features">
-                                    <li>Gas connection applications</li>
-                                    <li>Safety inspections</li>
-                                    <li>Meter installations</li>
-                                    <li>Emergency services</li>
+                                    <li data-en="Gas connection applications" data-ar="طلبات توصيل الغاز">Gas connection applications</li>
+                                    <li data-en="Safety inspections" data-ar="فحوصات السلامة">Safety inspections</li>
+                                    <li data-en="Meter installations" data-ar="تركيب العدادات">Meter installations</li>
+                                    <li data-en="Emergency services" data-ar="خدمات الطوارئ">Emergency services</li>
                                 </ul>
                             </div>
                         </div>
@@ -182,13 +188,13 @@
                                 <i class="fas fa-phone" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Telecommunications</h3>
-                                <p>Landline services, internet connections, and technical support for communication needs.</p>
+                                <h3 data-en="Telecommunications" data-ar="الاتصالات">Telecommunications</h3>
+                                <p data-en="Landline services, internet connections, and technical support for communication needs." data-ar="خدمات الخطوط الأرضية وتوصيلات الإنترنت والدعم الفني لاحتياجات الاتصال.">Landline services, internet connections, and technical support for communication needs.</p>
                                 <ul class="service-features">
-                                    <li>Landline installations</li>
-                                    <li>Internet service setup</li>
-                                    <li>Technical support</li>
-                                    <li>Service upgrades</li>
+                                    <li data-en="Landline installations" data-ar="تركيب الخطوط الأرضية">Landline installations</li>
+                                    <li data-en="Internet service setup" data-ar="إعداد خدمة الإنترنت">Internet service setup</li>
+                                    <li data-en="Technical support" data-ar="الدعم الفني">Technical support</li>
+                                    <li data-en="Service upgrades" data-ar="ترقيات الخدمة">Service upgrades</li>
                                 </ul>
                             </div>
                         </div>
@@ -198,13 +204,13 @@
                                 <i class="fas fa-wifi" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Internet Services</h3>
-                                <p>High-speed internet connections and digital infrastructure services.</p>
+                                <h3 data-en="Internet Services" data-ar="خدمات الإنترنت">Internet Services</h3>
+                                <p data-en="High-speed internet connections and digital infrastructure services." data-ar="اتصالات إنترنت عالية السرعة وخدمات البنية التحتية الرقمية.">High-speed internet connections and digital infrastructure services.</p>
                                 <ul class="service-features">
-                                    <li>Broadband connections</li>
-                                    <li>Speed upgrades</li>
-                                    <li>Technical troubleshooting</li>
-                                    <li>Business solutions</li>
+                                    <li data-en="Broadband connections" data-ar="اتصالات النطاق العريض">Broadband connections</li>
+                                    <li data-en="Speed upgrades" data-ar="ترقيات السرعة">Speed upgrades</li>
+                                    <li data-en="Technical troubleshooting" data-ar="استكشاف الأخطاء الفنية">Technical troubleshooting</li>
+                                    <li data-en="Business solutions" data-ar="الحلول التجارية">Business solutions</li>
                                 </ul>
                             </div>
                         </div>
@@ -214,13 +220,13 @@
                                 <i class="fas fa-flask" aria-hidden="true"></i>
                             </div>
                             <div class="service-content">
-                                <h3>Test Services</h3>
-                                <p>Testing and quality assurance services for various government applications.</p>
+                                <h3 data-en="Test Services" data-ar="خدمات الاختبار">Test Services</h3>
+                                <p data-en="Testing and quality assurance services for various government applications." data-ar="خدمات الاختبار وضمان الجودة لمختلف التطبيقات الحكومية.">Testing and quality assurance services for various government applications.</p>
                                 <ul class="service-features">
-                                    <li>Service testing</li>
-                                    <li>Quality assurance</li>
-                                    <li>Performance monitoring</li>
-                                    <li>System validation</li>
+                                    <li data-en="Service testing" data-ar="اختبار الخدمة">Service testing</li>
+                                    <li data-en="Quality assurance" data-ar="ضمان الجودة">Quality assurance</li>
+                                    <li data-en="Performance monitoring" data-ar="مراقبة الأداء">Performance monitoring</li>
+                                    <li data-en="System validation" data-ar="التحقق من النظام">System validation</li>
                                 </ul>
                             </div>
                         </div>
@@ -232,40 +238,40 @@
             <section id="how-it-works" class="how-it-works-section">
                 <div class="section-container">
                     <div class="section-header">
-                        <h2>How It Works</h2>
-                        <p>Simple steps to book your appointment and save time</p>
+                        <h2 data-en="How It Works" data-ar="كيف يعمل">How It Works</h2>
+                        <p data-en="Simple steps to book your appointment and save time" data-ar="خطوات بسيطة لحجز موعدك وتوفير الوقت">Simple steps to book your appointment and save time</p>
                     </div>
                     
                     <div class="steps-container">
                         <div class="step-item">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <h3>Choose Service</h3>
-                                <p>Select the government service you need from our comprehensive list of available options.</p>
+                                <h3 data-en="Choose Service" data-ar="اختر الخدمة">Choose Service</h3>
+                                <p data-en="Select the government service you need from our comprehensive list of available options." data-ar="اختر الخدمة الحكومية التي تحتاجها من قائمتنا الشاملة للخيارات المتاحة.">Select the government service you need from our comprehensive list of available options.</p>
                             </div>
                         </div>
                         
                         <div class="step-item">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <h3>Select Branch</h3>
-                                <p>Pick the most convenient branch location based on your area and current queue status.</p>
+                                <h3 data-en="Select Branch" data-ar="اختر الفرع">Select Branch</h3>
+                                <p data-en="Pick the most convenient branch location based on your area and current queue status." data-ar="اختر موقع الفرع الأكثر ملاءمة بناءً على منطقتك وحالة الطابور الحالية.">Pick the most convenient branch location based on your area and current queue status.</p>
                             </div>
                         </div>
                         
                         <div class="step-item">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <h3>Book Appointment</h3>
-                                <p>Fill in your details and get an instant queue number with estimated waiting time.</p>
+                                <h3 data-en="Book Appointment" data-ar="احجز موعد">Book Appointment</h3>
+                                <p data-en="Fill in your details and get an instant queue number with estimated waiting time." data-ar="املأ بياناتك واحصل على رقم طابور فوري مع وقت الانتظار المقدر.">Fill in your details and get an instant queue number with estimated waiting time.</p>
                             </div>
                         </div>
                         
                         <div class="step-item">
                             <div class="step-number">4</div>
                             <div class="step-content">
-                                <h3>Track Status</h3>
-                                <p>Monitor your queue position in real-time and receive notifications when it's your turn.</p>
+                                <h3 data-en="Track Status" data-ar="تتبع الحالة">Track Status</h3>
+                                <p data-en="Monitor your queue position in real-time and receive notifications when it's your turn." data-ar="راقب موقعك في الطابور في الوقت الفعلي واستلم إشعارات عندما يحين دورك.">Monitor your queue position in real-time and receive notifications when it's your turn.</p>
                             </div>
                         </div>
                     </div>
@@ -276,33 +282,33 @@
             <section class="trust-section">
                 <div class="section-container">
                     <div class="section-header">
-                        <h2>Why Choose Dorak.net</h2>
-                        <p>Trusted by thousands of Egyptian citizens for reliable government services</p>
+                        <h2 data-en="Why Choose Dorak.net" data-ar="لماذا تختار Dorak.net">Why Choose Dorak.net</h2>
+                        <p data-en="Trusted by thousands of Egyptian citizens for reliable government services" data-ar="موثوق به من قبل آلاف المواطنين المصريين للخدمات الحكومية الموثوقة">Trusted by thousands of Egyptian citizens for reliable government services</p>
                     </div>
                     
                     <div class="trust-features">
                         <div class="trust-item">
                             <i class="fas fa-shield-check" aria-hidden="true"></i>
-                            <h3>Secure & Official</h3>
-                            <p>Official government platform with bank-level security to protect your personal information.</p>
+                            <h3 data-en="Secure & Official" data-ar="آمن ورسمي">Secure & Official</h3>
+                            <p data-en="Official government platform with bank-level security to protect your personal information." data-ar="منصة حكومية رسمية بأمان على مستوى البنوك لحماية معلوماتك الشخصية.">Official government platform with bank-level security to protect your personal information.</p>
                         </div>
                         
                         <div class="trust-item">
                             <i class="fas fa-clock" aria-hidden="true"></i>
-                            <h3>Real-Time Updates</h3>
-                            <p>Get live updates on queue status and estimated waiting times for better planning.</p>
+                            <h3 data-en="Real-Time Updates" data-ar="تحديثات مباشرة">Real-Time Updates</h3>
+                            <p data-en="Get live updates on queue status and estimated waiting times for better planning." data-ar="احصل على تحديثات مباشرة حول حالة الطابور وأوقات الانتظار المقدرة لتخطيط أفضل.">Get live updates on queue status and estimated waiting times for better planning.</p>
                         </div>
                         
                         <div class="trust-item">
                             <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-                            <h3>Mobile Friendly</h3>
-                            <p>Access services from any device, anywhere, anytime with our responsive design.</p>
+                            <h3 data-en="Mobile Friendly" data-ar="متوافق مع الهاتف">Mobile Friendly</h3>
+                            <p data-en="Access services from any device, anywhere, anytime with our responsive design." data-ar="الوصول إلى الخدمات من أي جهاز، في أي مكان، في أي وقت مع تصميمنا المتجاوب.">Access services from any device, anywhere, anytime with our responsive design.</p>
                         </div>
                         
                         <div class="trust-item">
                             <i class="fas fa-headset" aria-hidden="true"></i>
-                            <h3>24/7 Support</h3>
-                            <p>Round-the-clock customer support to help you with any questions or issues.</p>
+                            <h3 data-en="24/7 Support" data-ar="دعم على مدار الساعة">24/7 Support</h3>
+                            <p data-en="Round-the-clock customer support to help you with any questions or issues." data-ar="دعم العملاء على مدار الساعة لمساعدتك في أي أسئلة أو مشاكل.">Round-the-clock customer support to help you with any questions or issues.</p>
                         </div>
                     </div>
                 </div>
@@ -312,30 +318,30 @@
             <section id="support" class="support-section">
                 <div class="section-container">
                     <div class="section-header">
-                        <h2>Need Help?</h2>
-                        <p>We're here to assist you with any questions or technical support</p>
+                        <h2 data-en="Need Help?" data-ar="تحتاج مساعدة؟">Need Help?</h2>
+                        <p data-en="We're here to assist you with any questions or technical support" data-ar="نحن هنا لمساعدتك في أي أسئلة أو دعم فني">We're here to assist you with any questions or technical support</p>
                     </div>
                     
                     <div class="support-grid">
                         <div class="support-card">
                             <i class="fas fa-phone-alt" aria-hidden="true"></i>
-                            <h3>Call Center</h3>
-                            <p>Speak directly with our support team for immediate assistance with your booking or technical issues.</p>
+                            <h3 data-en="Call Center" data-ar="مركز الاتصال">Call Center</h3>
+                            <p data-en="Speak directly with our support team for immediate assistance with your booking or technical issues." data-ar="تحدث مباشرة مع فريق الدعم للحصول على مساعدة فورية في حجزك أو المشاكل الفنية.">Speak directly with our support team for immediate assistance with your booking or technical issues.</p>
                             <a href="tel:16000" class="support-link">16000</a>
                         </div>
                         
                         <div class="support-card">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <h3>Email Support</h3>
-                            <p>Send us your questions and we'll respond within 24 hours with detailed solutions.</p>
+                            <h3 data-en="Email Support" data-ar="دعم البريد الإلكتروني">Email Support</h3>
+                            <p data-en="Send us your questions and we'll respond within 24 hours with detailed solutions." data-ar="أرسل لنا أسئلتك وسنرد خلال 24 ساعة بحلول مفصلة.">Send us your questions and we'll respond within 24 hours with detailed solutions.</p>
                             <a href="mailto:info@dorak.gov.eg" class="support-link">info@dorak.gov.eg</a>
                         </div>
                         
                         <div class="support-card">
                             <i class="fas fa-question-circle" aria-hidden="true"></i>
-                            <h3>FAQ</h3>
-                            <p>Find answers to commonly asked questions about our services and booking process.</p>
-                            <a href="#faq" class="support-link">View FAQ</a>
+                            <h3 data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</h3>
+                            <p data-en="Find answers to commonly asked questions about our services and booking process." data-ar="اعثر على إجابات للأسئلة الشائعة حول خدماتنا وعملية الحجز.">Find answers to commonly asked questions about our services and booking process.</p>
+                            <a href="#faq" class="support-link" data-en="View FAQ" data-ar="عرض الأسئلة الشائعة">View FAQ</a>
                         </div>
                     </div>
                 </div>
@@ -346,46 +352,46 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Government Links</h3>
+                    <h3 data-en="Government Links" data-ar="الروابط الحكومية">Government Links</h3>
                     <ul>
-                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
-                        <li><a href="#" rel="external">Ministry of Housing</a></li>
-                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Electricity" data-ar="وزارة الكهرباء">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Housing" data-ar="وزارة الإسكان">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Communications" data-ar="وزارة الاتصالات">Ministry of Communications</a></li>
                         <li><a href="#" rel="external">Egypt.gov.eg</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
                     <ul>
-                        <li><a href="companies.html">Book Appointment</a></li>
-                        <li><a href="status.html">Check Status</a></li>
-                        <li><a href="#support">Support</a></li>
-                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="companies.html" data-en="Book Appointment" data-ar="احجز موعد">Book Appointment</a></li>
+                        <li><a href="status.html" data-en="Check Status" data-ar="تحقق من الحالة">Check Status</a></li>
+                        <li><a href="#support" data-en="Support" data-ar="الدعم">Support</a></li>
+                        <li><a href="admin.html" data-en="Admin Portal" data-ar="بوابة الإدارة">Admin Portal</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3 data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</h3>
                     <address>
-                        <p>Digital Government Services</p>
-                        <p>Cairo, Arab Republic of Egypt</p>
-                        <p>Phone: <a href="tel:16000">16000</a></p>
-                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                        <p data-en="Digital Government Services" data-ar="خدمات الحكومة الرقمية">Digital Government Services</p>
+                        <p data-en="Cairo, Arab Republic of Egypt" data-ar="القاهرة، جمهورية مصر العربية">Cairo, Arab Republic of Egypt</p>
+                        <p data-en="Phone: " data-ar="الهاتف: ">Phone: <a href="tel:16000">16000</a></p>
+                        <p data-en="Email: " data-ar="البريد الإلكتروني: ">Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
                     </address>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <p data-en="© 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved." data-ar="© 2024 جمهورية مصر العربية - خدمات الحكومة الرقمية. جميع الحقوق محفوظة.">&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
                 <div class="footer-badges">
                     <div class="badge">
                         <i class="fas fa-certificate" aria-hidden="true"></i>
-                        <span>ISO Certified</span>
+                        <span data-en="ISO Certified" data-ar="معتمد ISO">ISO Certified</span>
                     </div>
                     <div class="badge">
                         <i class="fas fa-lock" aria-hidden="true"></i>
-                        <span>Secure</span>
+                        <span data-en="Secure" data-ar="آمن">Secure</span>
                     </div>
                 </div>
             </div>

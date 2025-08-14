@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Branch - Dorak.net</title>
+    <title data-ar="اختيار الفرع - Dorak.net" data-en="Select Branch - Dorak.net">اختيار الفرع - Dorak.net</title>
+    <meta name="description" content="اختر الفرع الأنسب لموعدك من مواقعنا المتعددة">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Adding Google Fonts for Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-ar="انتقل إلى المحتوى الرئيسي" data-en="Skip to main content">انتقل إلى المحتوى الرئيسي</a>
+    
     <div class="container">
         <!-- Header -->
         <header class="header">
             <div class="header-top">
                 <div class="government-badge">
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Official Government Service</span>
+                    <span data-ar="خدمة حكومية رسمية" data-en="Official Government Service">خدمة حكومية رسمية</span>
                 </div>
                 <div class="header-controls">
-                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                    <!-- Adding language toggle button -->
+                    <button id="languageToggle" class="language-toggle" title="تبديل اللغة" aria-label="تبديل بين العربية والإنجليزية">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <button id="themeToggle" class="theme-toggle" title="تبديل المظهر" aria-label="التبديل بين المظهر الفاتح والداكن">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                         <i class="fas fa-moon" aria-hidden="true"></i>
                     </button>
@@ -29,47 +39,56 @@
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div class="logo-text">
                             <h1>Dorak.net</h1>
-                            <p>Digital Queue Management System</p>
+                            <p data-ar="نظام إدارة الطوابير الرقمي" data-en="Digital Queue Management System">نظام إدارة الطوابير الرقمي</p>
                         </div>
                     </div>
                     <div class="egypt-emblem">
                         <i class="fas fa-eagle" aria-hidden="true"></i>
-                        <span>Arab Republic of Egypt</span>
+                        <span data-ar="جمهورية مصر العربية" data-en="Arab Republic of Egypt">جمهورية مصر العربية</span>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Breadcrumb -->
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="مسار التنقل">
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="companies.html">Select Service</a></li>
-                <li aria-current="page">Select Branch</li>
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-ar="الرئيسية" data-en="Home">الرئيسية</span></a></li>
+                <li><a href="companies.html" data-ar="اختيار الخدمة" data-en="Select Service">اختيار الخدمة</a></li>
+                <li aria-current="page" data-ar="اختيار الفرع" data-en="Select Branch">اختيار الفرع</li>
             </ol>
         </nav>
 
         <!-- Main Content -->
-        <main class="page-content">
+        <main id="main-content" class="page-content">
             <div class="page-header">
-                <h1 id="companyTitle">Select Branch</h1>
-                <p>Choose the most convenient branch location for your appointment</p>
+                <h1 id="companyTitle" data-ar="اختيار الفرع" data-en="Select Branch">اختيار الفرع</h1>
+                <p data-ar="اختر موقع الفرع الأنسب لموعدك" data-en="Choose the most convenient branch location for your appointment">اختر موقع الفرع الأنسب لموعدك</p>
             </div>
 
             <!-- Search and Filter Section -->
             <div class="search-section">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="branchSearch" placeholder="Search branches by name or location...">
+                    <input type="text" id="branchSearch" 
+                           data-ar="ابحث عن الفروع بالاسم أو الموقع..." 
+                           data-en="Search branches by name or location..."
+                           placeholder="ابحث عن الفروع بالاسم أو الموقع...">
                 </div>
                 
                 <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterByGovernorate('all')">All Locations</button>
-                    <button class="filter-btn" onclick="filterByGovernorate('cairo')">Cairo</button>
-                    <button class="filter-btn" onclick="filterByGovernorate('giza')">Giza</button>
-                    <button class="filter-btn" onclick="filterByGovernorate('alexandria')">Alexandria</button>
-                    <button class="filter-btn" onclick="filterByGovernorate('luxor')">Luxor</button>
-                    <button class="filter-btn" onclick="filterByGovernorate('aswan')">Aswan</button>
+                    <button class="filter-btn active" onclick="filterByGovernorate('all')" 
+                            data-ar="جميع المواقع" data-en="All Locations">جميع المواقع</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('cairo')" 
+                            data-ar="القاهرة" data-en="Cairo">القاهرة</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('giza')" 
+                            data-ar="الجيزة" data-en="Giza">الجيزة</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('alexandria')" 
+                            data-ar="الإسكندرية" data-en="Alexandria">الإسكندرية</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('luxor')" 
+                            data-ar="الأقصر" data-en="Luxor">الأقصر</button>
+                    <button class="filter-btn" onclick="filterByGovernorate('aswan')" 
+                            data-ar="أسوان" data-en="Aswan">أسوان</button>
                 </div>
             </div>
 
@@ -82,9 +101,12 @@
                 <div class="help-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="help-content">
-                        <h3>Can't Find Your Location?</h3>
-                        <p>If you can't find a branch in your area, contact our support team for assistance with alternative locations.</p>
-                        <a href="tel:16000" class="help-link">Call 16000 for help</a>
+                        <h3 data-ar="لا تجد موقعك؟" data-en="Can't Find Your Location?">لا تجد موقعك؟</h3>
+                        <p data-ar="إذا لم تتمكن من العثور على فرع في منطقتك، اتصل بفريق الدعم للحصول على المساعدة في المواقع البديلة." 
+                           data-en="If you can't find a branch in your area, contact our support team for assistance with alternative locations.">
+                           إذا لم تتمكن من العثور على فرع في منطقتك، اتصل بفريق الدعم للحصول على المساعدة في المواقع البديلة.
+                        </p>
+                        <a href="tel:16000" class="help-link" data-ar="اتصل بـ 16000 للمساعدة" data-en="Call 16000 for help">اتصل بـ 16000 للمساعدة</a>
                     </div>
                 </div>
             </div>
@@ -94,38 +116,41 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Government Links</h3>
+                    <h3 data-ar="الروابط الحكومية" data-en="Government Links">الروابط الحكومية</h3>
                     <ul>
-                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
-                        <li><a href="#" rel="external">Ministry of Housing</a></li>
-                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الكهرباء" data-en="Ministry of Electricity">وزارة الكهرباء</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الإسكان" data-en="Ministry of Housing">وزارة الإسكان</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الاتصالات" data-en="Ministry of Communications">وزارة الاتصالات</a></li>
                         <li><a href="#" rel="external">Egypt.gov.eg</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3 data-ar="الخدمات" data-en="Services">الخدمات</h3>
                     <ul>
-                        <li><a href="companies.html">Book Appointment</a></li>
-                        <li><a href="status.html">Check Status</a></li>
-                        <li><a href="index.html#support">Support</a></li>
-                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="companies.html" data-ar="حجز موعد" data-en="Book Appointment">حجز موعد</a></li>
+                        <li><a href="status.html" data-ar="فحص الحالة" data-en="Check Status">فحص الحالة</a></li>
+                        <li><a href="index.html#support" data-ar="الدعم" data-en="Support">الدعم</a></li>
+                        <li><a href="admin.html" data-ar="بوابة الإدارة" data-en="Admin Portal">بوابة الإدارة</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3 data-ar="معلومات الاتصال" data-en="Contact Information">معلومات الاتصال</h3>
                     <address>
-                        <p>Digital Government Services</p>
-                        <p>Cairo, Arab Republic of Egypt</p>
-                        <p>Phone: <a href="tel:16000">16000</a></p>
-                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                        <p data-ar="خدمات الحكومة الرقمية" data-en="Digital Government Services">خدمات الحكومة الرقمية</p>
+                        <p data-ar="القاهرة، جمهورية مصر العربية" data-en="Cairo, Arab Republic of Egypt">القاهرة، جمهورية مصر العربية</p>
+                        <p data-ar="الهاتف:" data-en="Phone:">الهاتف: <a href="tel:16000">16000</a></p>
+                        <p data-ar="البريد الإلكتروني:" data-en="Email:">البريد الإلكتروني: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
                     </address>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <p data-ar="© 2024 جمهورية مصر العربية - خدمات الحكومة الرقمية. جميع الحقوق محفوظة." 
+                data-en="© 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.">
+                    © 2024 جمهورية مصر العربية - خدمات الحكومة الرقمية. جميع الحقوق محفوظة.
+                </p>
             </div>
         </footer>
     </div>

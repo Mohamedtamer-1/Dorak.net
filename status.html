@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Status - Dorak.net</title>
+    <title data-ar="حالة الحجز - Dorak.net" data-en="Booking Status - Dorak.net">حالة الحجز - Dorak.net</title>
+    <meta name="description" content="تتبع حالة حجزك في الوقت الفعلي مع نظام إدارة الطوابير الرقمي">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Added Google Fonts for Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Add EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-ar="انتقل إلى المحتوى الرئيسي" data-en="Skip to main content">انتقل إلى المحتوى الرئيسي</a>
+    
     <div class="container">
         <!-- Header -->
         <header class="header">
             <div class="header-top">
                 <div class="government-badge">
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Official Government Service</span>
+                    <span data-ar="خدمة حكومية رسمية" data-en="Official Government Service">خدمة حكومية رسمية</span>
                 </div>
                 <div class="header-controls">
-                    <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
+                    <!-- Added language toggle button -->
+                    <button id="languageToggle" class="language-toggle" title="تبديل اللغة" aria-label="تبديل بين العربية والإنجليزية">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <button id="themeToggle" class="theme-toggle" title="تبديل المظهر" aria-label="التبديل بين المظهر الفاتح والداكن">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                         <i class="fas fa-moon" aria-hidden="true"></i>
                     </button>
@@ -31,46 +41,46 @@
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div class="logo-text">
                             <h1>Dorak.net</h1>
-                            <p>Digital Queue Management System</p>
+                            <p data-ar="نظام إدارة الطوابير الرقمي" data-en="Digital Queue Management System">نظام إدارة الطوابير الرقمي</p>
                         </div>
                     </div>
                     <div class="egypt-emblem">
                         <i class="fas fa-eagle" aria-hidden="true"></i>
-                        <span>Arab Republic of Egypt</span>
+                        <span data-ar="جمهورية مصر العربية" data-en="Arab Republic of Egypt">جمهورية مصر العربية</span>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Breadcrumb -->
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="مسار التنقل">
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="companies.html">Select Service</a></li>
-                <li><a href="branches.html">Select Branch</a></li>
-                <li><a href="booking.html">Book Appointment</a></li>
-                <li aria-current="page">Booking Status</li>
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-ar="الرئيسية" data-en="Home">الرئيسية</span></a></li>
+                <li><a href="companies.html" data-ar="اختيار الخدمة" data-en="Select Service">اختيار الخدمة</a></li>
+                <li><a href="branches.html" data-ar="اختيار الفرع" data-en="Select Branch">اختيار الفرع</a></li>
+                <li><a href="booking.html" data-ar="حجز موعد" data-en="Book Appointment">حجز موعد</a></li>
+                <li aria-current="page" data-ar="حالة الحجز" data-en="Booking Status">حالة الحجز</li>
             </ol>
         </nav>
 
         <!-- Main Content -->
-        <main class="status-container">
-            <!-- Success Message -->
+        <main id="main-content" class="status-container">
+            <!-- Improved success banner with better spacing and cleaner design -->
             <div class="success-banner">
                 <div class="success-icon">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <div class="success-content">
-                    <h2>Booking Confirmed Successfully!</h2>
-                    <p>Your appointment has been scheduled. Please keep this information for your records.</p>
+                    <h2 data-ar="تم تأكيد الحجز بنجاح!" data-en="Booking Confirmed Successfully!">تم تأكيد الحجز بنجاح!</h2>
+                    <p data-ar="تم جدولة موعدك. يرجى الاحتفاظ بهذه المعلومات لسجلاتك." data-en="Your appointment has been scheduled. Please keep this information for your records.">تم جدولة موعدك. يرجى الاحتفاظ بهذه المعلومات لسجلاتك.</p>
                 </div>
             </div>
 
-            <!-- Queue Status Card -->
+            <!-- Enhanced queue status card with better organization -->
             <div class="status-card queue-status">
                 <div class="card-header">
-                    <h3><i class="fas fa-users"></i> Queue Status</h3>
-                    <button class="refresh-btn" onclick="refreshStatus()" title="Refresh Status">
+                    <h3><i class="fas fa-users"></i> <span data-ar="حالة الطابور" data-en="Queue Status">حالة الطابور</span></h3>
+                    <button class="refresh-btn" onclick="refreshStatus()" data-ar="تحديث الحالة" data-en="Refresh Status" title="تحديث الحالة">
                         <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
@@ -78,11 +88,11 @@
                 <div class="queue-info">
                     <div class="queue-numbers">
                         <div class="queue-item current">
-                            <span class="queue-label">Currently Serving</span>
+                            <span class="queue-label" data-ar="يتم خدمته حالياً" data-en="Currently Serving">يتم خدمته حالياً</span>
                             <span class="queue-number" id="currentServing">15</span>
                         </div>
                         <div class="queue-item your">
-                            <span class="queue-label">Your Number</span>
+                            <span class="queue-label" data-ar="رقمك" data-en="Your Number">رقمك</span>
                             <span class="queue-number highlight" id="yourNumber">23</span>
                         </div>
                     </div>
@@ -92,14 +102,14 @@
                             <i class="fas fa-clock"></i>
                             <div>
                                 <span class="stat-number" id="peopleAhead">8</span>
-                                <span class="stat-label">People Ahead</span>
+                                <span class="stat-label" data-ar="أشخاص أمامك" data-en="People Ahead">أشخاص أمامك</span>
                             </div>
                         </div>
                         <div class="stat-item">
                             <i class="fas fa-hourglass-half"></i>
                             <div>
                                 <span class="stat-number" id="estimatedWait">80</span>
-                                <span class="stat-label">Est. Wait (min)</span>
+                                <span class="stat-label" data-ar="الانتظار المقدر (دقيقة)" data-en="Est. Wait (min)">الانتظار المقدر (دقيقة)</span>
                             </div>
                         </div>
                     </div>
@@ -108,90 +118,113 @@
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 65%"></div>
                 </div>
-                <p class="progress-text">You're 65% closer to being served</p>
+                <p class="progress-text" data-ar="أنت أقرب بنسبة 65% للحصول على الخدمة" data-en="You're 65% closer to being served">أنت أقرب بنسبة 65% للحصول على الخدمة</p>
             </div>
 
-            <!-- Booking Details Card -->
+            <!-- Reorganized booking details with better structure -->
             <div class="status-card booking-details">
                 <div class="card-header">
-                    <h3><i class="fas fa-info-circle"></i> Booking Details</h3>
+                    <h3><i class="fas fa-info-circle"></i> <span data-ar="تفاصيل الحجز" data-en="Booking Details">تفاصيل الحجز</span></h3>
                 </div>
                 
                 <div class="details-grid">
-                    <div class="detail-item">
-                        <span class="detail-label">Full Name</span>
-                        <span class="detail-value" id="userName">John Doe</span>
+                    <div class="detail-section">
+                        <h4 data-ar="المعلومات الشخصية" data-en="Personal Information">المعلومات الشخصية</h4>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</span>
+                            <span class="detail-value" id="userName">أحمد محمد علي</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</span>
+                            <span class="detail-value" id="userPhone">01234567890</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</span>
+                            <span class="detail-value" id="userEmail">user@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="الرقم القومي" data-en="National ID">الرقم القومي</span>
+                            <span class="detail-value" id="nationalId">12345678901234</span>
+                        </div>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Phone Number</span>
-                        <span class="detail-value" id="userPhone">01234567890</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Service Type</span>
-                        <span class="detail-value" id="serviceType">New Connection</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Branch Location</span>
-                        <span class="detail-value" id="branchLocation">Cairo Main Branch</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Booking Date</span>
-                        <span class="detail-value" id="bookingDate">2024-01-15 10:30 AM</span>
+                    
+                    <div class="detail-section">
+                        <h4 data-ar="تفاصيل الخدمة" data-en="Service Details">تفاصيل الخدمة</h4>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="رقم التذكرة" data-en="Ticket Number">رقم التذكرة</span>
+                            <span class="detail-value" id="ticketNumber">DRK-1234567890</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="الشركة" data-en="Company">الشركة</span>
+                            <span class="detail-value" id="companyName">شركة الكهرباء المصرية</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="نوع الخدمة" data-en="Service Type">نوع الخدمة</span>
+                            <span class="detail-value" id="serviceType">توصيل جديد</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="موقع الفرع" data-en="Branch Location">موقع الفرع</span>
+                            <span class="detail-value" id="branchLocation">فرع القاهرة الرئيسي</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-ar="تاريخ الحجز" data-en="Booking Date">تاريخ الحجز</span>
+                            <span class="detail-value" id="bookingDate">2024-01-15 10:30 ص</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Important Instructions -->
+            <!-- Improved instructions section with better organization and bullet points -->
             <div class="status-card instructions">
                 <div class="card-header">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Important Instructions</h3>
+                    <h3><i class="fas fa-exclamation-triangle"></i> <span data-ar="تعليمات مهمة" data-en="Important Instructions">تعليمات مهمة</span></h3>
                 </div>
                 
                 <div class="instruction-list">
                     <div class="instruction-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <strong>Arrive on Time</strong>
-                            <p>Please arrive 10 minutes before your estimated time to avoid missing your turn.</p>
+                            <strong data-ar="الوصول في الوقت المحدد" data-en="Arrive on Time">الوصول في الوقت المحدد</strong>
+                            <p data-ar="يرجى الوصول قبل 10 دقائق من الوقت المقدر لتجنب فقدان دورك." data-en="Please arrive 10 minutes before your estimated time to avoid missing your turn.">يرجى الوصول قبل 10 دقائق من الوقت المقدر لتجنب فقدان دورك.</p>
                         </div>
                     </div>
                     <div class="instruction-item">
                         <i class="fas fa-id-card"></i>
                         <div>
-                            <strong>Bring Required Documents</strong>
-                            <p>Don't forget to bring your National ID and any relevant documents for your service.</p>
+                            <strong data-ar="إحضار المستندات المطلوبة" data-en="Bring Required Documents">إحضار المستندات المطلوبة</strong>
+                            <p data-ar="لا تنس إحضار بطاقة الهوية الوطنية وأي مستندات ذات صلة بخدمتك." data-en="Don't forget to bring your National ID and any relevant documents for your service.">لا تنس إحضار بطاقة الهوية الوطنية وأي مستندات ذات صلة بخدمتك.</p>
                         </div>
                     </div>
                     <div class="instruction-item">
                         <i class="fas fa-mobile-alt"></i>
                         <div>
-                            <strong>Keep This Page Open</strong>
-                            <p>Monitor your queue status in real-time. You'll receive notifications when it's almost your turn.</p>
+                            <strong data-ar="احتفظ بهذه الصفحة مفتوحة" data-en="Keep This Page Open">احتفظ بهذه الصفحة مفتوحة</strong>
+                            <p data-ar="راقب حالة الطابور في الوقت الفعلي. ستتلقى إشعارات عندما يقترب دورك." data-en="Monitor your queue status in real-time. You'll receive notifications when it's almost your turn.">راقب حالة الطابور في الوقت الفعلي. ستتلقى إشعارات عندما يقترب دورك.</p>
                         </div>
                     </div>
                     <div class="instruction-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <strong>Check Your Email</strong>
-                            <p>A confirmation email has been sent with all your booking details.</p>
+                            <strong data-ar="تحقق من بريدك الإلكتروني" data-en="Check Your Email">تحقق من بريدك الإلكتروني</strong>
+                            <p data-ar="تم إرسال بريد إلكتروني للتأكيد يحتوي على جميع تفاصيل حجزك." data-en="A confirmation email has been sent with all your booking details.">تم إرسال بريد إلكتروني للتأكيد يحتوي على جميع تفاصيل حجزك.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Action Buttons -->
+            <!-- Enhanced action buttons with better spacing -->
             <div class="action-buttons">
                 <button class="btn-primary" onclick="window.print()">
                     <i class="fas fa-print"></i>
-                    Print Details
+                    <span data-ar="طباعة التفاصيل" data-en="Print Details">طباعة التفاصيل</span>
                 </button>
                 <button class="btn-secondary" onclick="bookAnother()">
                     <i class="fas fa-plus"></i>
-                    Book Another
+                    <span data-ar="حجز آخر" data-en="Book Another">حجز آخر</span>
                 </button>
                 <button class="btn-secondary" onclick="goHome()">
                     <i class="fas fa-home"></i>
-                    Go Home
+                    <span data-ar="العودة للرئيسية" data-en="Go Home">العودة للرئيسية</span>
                 </button>
             </div>
         </main>
@@ -200,43 +233,426 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Government Links</h3>
+                    <h3 data-ar="الروابط الحكومية" data-en="Government Links">الروابط الحكومية</h3>
                     <ul>
-                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
-                        <li><a href="#" rel="external">Ministry of Housing</a></li>
-                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الكهرباء" data-en="Ministry of Electricity">وزارة الكهرباء</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الإسكان" data-en="Ministry of Housing">وزارة الإسكان</a></li>
+                        <li><a href="#" rel="external" data-ar="وزارة الاتصالات" data-en="Ministry of Communications">وزارة الاتصالات</a></li>
                         <li><a href="#" rel="external">Egypt.gov.eg</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3 data-ar="الخدمات" data-en="Services">الخدمات</h3>
                     <ul>
-                        <li><a href="companies.html">Book Appointment</a></li>
-                        <li><a href="status.html">Check Status</a></li>
-                        <li><a href="index.html#support">Support</a></li>
-                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="companies.html" data-ar="حجز موعد" data-en="Book Appointment">حجز موعد</a></li>
+                        <li><a href="status.html" data-ar="فحص الحالة" data-en="Check Status">فحص الحالة</a></li>
+                        <li><a href="index.html#support" data-ar="الدعم" data-en="Support">الدعم</a></li>
+                        <li><a href="admin.html" data-ar="بوابة الإدارة" data-en="Admin Portal">بوابة الإدارة</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3 data-ar="معلومات الاتصال" data-en="Contact Information">معلومات الاتصال</h3>
                     <address>
-                        <p>Digital Government Services</p>
-                        <p>Cairo, Arab Republic of Egypt</p>
-                        <p>Phone: <a href="tel:16000">16000</a></p>
-                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                        <p data-ar="خدمات الحكومة الرقمية" data-en="Digital Government Services">خدمات الحكومة الرقمية</p>
+                        <p data-ar="القاهرة، جمهورية مصر العربية" data-en="Cairo, Arab Republic of Egypt">القاهرة، جمهورية مصر العربية</p>
+                        <p data-ar="الهاتف:" data-en="Phone:">الهاتف: <a href="tel:16000">16000</a></p>
+                        <p data-ar="البريد الإلكتروني:" data-en="Email:">البريد الإلكتروني: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
                     </address>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <p data-ar="© 2024 جمهورية مصر العربية - خدمات الحكومة الرقمية. جميع الحقوق محفوظة." data-en="© 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.">© 2024 جمهورية مصر العربية - خدمات الحكومة الرقمية. جميع الحقوق محفوظة.</p>
+                <div class="footer-badges">
+                    <div class="badge">
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
+                        <span data-ar="معتمد ISO" data-en="ISO Certified">معتمد ISO</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <span data-ar="آمن" data-en="Secure">آمن</span>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
 
     <!-- Load your script -->
     <script src="script.js"></script>
+    
+    <!-- Initialize status page with booking data -->
+    <script>
+        function updateStatusPageContent(bookingData) {
+            try {
+                console.log('🔄 Updating status page content with:', bookingData)
+                
+                // Update queue numbers
+                if (bookingData.queueNumber) {
+                    const yourNumberEl = document.getElementById('yourNumber')
+                    if (yourNumberEl) {
+                        yourNumberEl.textContent = bookingData.queueNumber
+                    }
+                }
+                
+                if (bookingData.currentNumber) {
+                    const currentServingEl = document.getElementById('currentServing')
+                    if (currentServingEl) {
+                        currentServingEl.textContent = bookingData.currentNumber
+                    }
+                }
+                
+                // Calculate people ahead
+                const peopleAhead = Math.max(0, (bookingData.queueNumber || 0) - (bookingData.currentNumber || 0) - 1)
+                const peopleAheadEl = document.getElementById('peopleAhead')
+                if (peopleAheadEl) {
+                    peopleAheadEl.textContent = peopleAhead
+                }
+                
+                // Update estimated wait time
+                if (bookingData.waitingTime) {
+                    const estimatedWaitEl = document.getElementById('estimatedWait')
+                    if (estimatedWaitEl) {
+                        estimatedWaitEl.textContent = bookingData.waitingTime
+                    }
+                }
+                
+                // Update personal information
+                if (bookingData.fullName) {
+                    const userNameEl = document.getElementById('userName')
+                    if (userNameEl) {
+                        userNameEl.textContent = bookingData.fullName
+                    }
+                }
+                
+                if (bookingData.phoneNumber) {
+                    const userPhoneEl = document.getElementById('userPhone')
+                    if (userPhoneEl) {
+                        userPhoneEl.textContent = bookingData.phoneNumber
+                    }
+                }
+                
+                // Update service details
+                if (bookingData.serviceType) {
+                    const serviceTypeEl = document.getElementById('serviceType')
+                    if (serviceTypeEl) {
+                        // Convert service type to readable format
+                        const serviceTypeMap = {
+                            'new-connection': { en: 'New Connection', ar: 'توصيل جديد' },
+                            'bill-payment': { en: 'Bill Payment', ar: 'دفع فاتورة' },
+                            'technical-support': { en: 'Technical Support', ar: 'الدعم الفني' },
+                            'maintenance': { en: 'Maintenance Request', ar: 'طلب صيانة' },
+                            'complaint': { en: 'File Complaint', ar: 'تقديم شكوى' },
+                            'other': { en: 'Other', ar: 'أخرى' }
+                        }
+                        const serviceInfo = serviceTypeMap[bookingData.serviceType] || { en: bookingData.serviceType, ar: bookingData.serviceType }
+                        const currentLang = document.documentElement.lang || 'ar'
+                        serviceTypeEl.textContent = currentLang === 'ar' ? serviceInfo.ar : serviceInfo.en
+                    }
+                }
+                
+                if (bookingData.branchName) {
+                    const branchLocationEl = document.getElementById('branchLocation')
+                    if (branchLocationEl) {
+                        branchLocationEl.textContent = bookingData.branchName
+                    }
+                }
+                
+                if (bookingData.bookingTime) {
+                    const bookingDateEl = document.getElementById('bookingDate')
+                    if (bookingDateEl) {
+                        bookingDateEl.textContent = bookingData.bookingTime
+                    }
+                }
+                
+                // Update company name if available
+                if (bookingData.companyName) {
+                    const companyNameEl = document.getElementById('companyName')
+                    if (companyNameEl) {
+                        companyNameEl.textContent = bookingData.companyName
+                    }
+                }
+                
+                // Update national ID if available
+                if (bookingData.nationalId) {
+                    const nationalIdEl = document.getElementById('nationalId')
+                    if (nationalIdEl) {
+                        nationalIdEl.textContent = bookingData.nationalId
+                    }
+                }
+                
+                // Update email if available
+                if (bookingData.email) {
+                    const emailEl = document.getElementById('userEmail')
+                    if (emailEl) {
+                        emailEl.textContent = bookingData.email
+                    }
+                }
+                
+                // Update progress bar
+                const totalInQueue = bookingData.queueNumber || 1
+                const progressPercentage = Math.min(100, Math.max(0, ((totalInQueue - peopleAhead) / totalInQueue) * 100))
+                const progressFill = document.querySelector('.progress-fill')
+                if (progressFill) {
+                    progressFill.style.width = `${progressPercentage}%`
+                }
+                
+                // Update progress text
+                const progressText = document.querySelector('.progress-text')
+                if (progressText) {
+                    const currentLang = document.documentElement.lang || 'ar'
+                    const progressMsg = currentLang === 'ar' 
+                        ? `أنت أقرب بنسبة ${Math.round(progressPercentage)}% للحصول على الخدمة`
+                        : `You're ${Math.round(progressPercentage)}% closer to being served`
+                    progressText.textContent = progressMsg
+                }
+                
+                // Update ticket number if available
+                if (bookingData.bookingId) {
+                    const ticketNumberEl = document.getElementById('ticketNumber')
+                    if (ticketNumberEl) {
+                        ticketNumberEl.textContent = bookingData.bookingId
+                    }
+                }
+                
+                console.log('✅ Status page content updated successfully')
+                
+            } catch (error) {
+                console.error('❌ Error updating status page content:', error)
+            }
+        }
+        
+        function refreshStatus() {
+            console.log('🔄 Refreshing status...')
+            // Simulate refresh by reloading booking data
+            const bookingDataStr = localStorage.getItem('bookingData')
+            if (bookingDataStr) {
+                try {
+                    const bookingData = JSON.parse(bookingDataStr)
+                    updateStatusPageContent(bookingData)
+                    
+                    // Show refresh feedback
+                    const refreshBtn = document.querySelector('.refresh-btn i')
+                    if (refreshBtn) {
+                        refreshBtn.classList.add('fa-spin')
+                        setTimeout(() => {
+                            refreshBtn.classList.remove('fa-spin')
+                        }, 1000)
+                    }
+                } catch (error) {
+                    console.error('Error refreshing status:', error)
+                }
+            }
+        }
+        
+        function bookAnother() {
+            console.log('📝 Starting new booking...')
+            // Clear current booking data and redirect to companies page
+            localStorage.removeItem('bookingData')
+            localStorage.removeItem('selectedCompany')
+            localStorage.removeItem('selectedBranch')
+            window.location.href = 'companies.html'
+        }
+        
+        function goHome() {
+            console.log('🏠 Going home...')
+            window.location.href = 'index.html'
+        }
+        
+        // Initialize language and theme toggles
+        function initializeToggles() {
+            // Language toggle
+            const languageToggle = document.getElementById('languageToggle')
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function() {
+                    const currentLang = document.documentElement.lang || 'ar'
+                    const newLang = currentLang === 'ar' ? 'en' : 'ar'
+                    
+                    // Update page language
+                    document.documentElement.lang = newLang
+                    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr'
+                    document.documentElement.setAttribute('data-lang', newLang)
+                    
+                    // Update language toggle text
+                    const currentLangSpan = document.getElementById('currentLang')
+                    if (currentLangSpan) {
+                        currentLangSpan.textContent = newLang.toUpperCase()
+                    }
+                    
+                    // Update all translatable content
+                    updateLanguageContent(newLang)
+                    
+                    // Save to localStorage
+                    localStorage.setItem('language', newLang)
+                    
+                    console.log('Language changed to:', newLang)
+                })
+            }
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle')
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light'
+                    const newTheme = currentTheme === 'light' ? 'dark' : 'light'
+                    
+                    // Update page theme
+                    document.documentElement.setAttribute('data-theme', newTheme)
+                    
+                    // Update theme toggle icons
+                    const sunIcon = themeToggle.querySelector('.fa-sun')
+                    const moonIcon = themeToggle.querySelector('.fa-moon')
+                    
+                    if (newTheme === 'dark') {
+                        if (sunIcon) sunIcon.style.display = 'inline-block'
+                        if (moonIcon) moonIcon.style.display = 'none'
+                    } else {
+                        if (sunIcon) sunIcon.style.display = 'none'
+                        if (moonIcon) moonIcon.style.display = 'inline-block'
+                    }
+                    
+                    // Save to localStorage
+                    localStorage.setItem('theme', newTheme)
+                    
+                    console.log('Theme changed to:', newTheme)
+                })
+            }
+        }
+        
+        // Update language content
+        function updateLanguageContent(lang) {
+            const elements = document.querySelectorAll('[data-ar][data-en]')
+            elements.forEach((element) => {
+                const content = element.getAttribute(`data-${lang}`)
+                if (content) {
+                    if (element.tagName === 'INPUT' && element.type !== 'submit') {
+                        element.placeholder = content
+                    } else {
+                        element.textContent = content
+                    }
+                }
+            })
+        }
+        
+        // Initialize page settings from localStorage
+        function initializePageSettings() {
+            // Set language
+            const savedLanguage = localStorage.getItem('language') || 'ar'
+            document.documentElement.lang = savedLanguage
+            document.documentElement.dir = savedLanguage === 'ar' ? 'rtl' : 'ltr'
+            document.documentElement.setAttribute('data-lang', savedLanguage)
+            
+            // Update language toggle text
+            const currentLangSpan = document.getElementById('currentLang')
+            if (currentLangSpan) {
+                currentLangSpan.textContent = savedLanguage.toUpperCase()
+            }
+            
+            // Set theme
+            const savedTheme = localStorage.getItem('theme') || 'light'
+            document.documentElement.setAttribute('data-theme', savedTheme)
+            
+            // Update theme toggle icons
+            const themeToggle = document.getElementById('themeToggle')
+            if (themeToggle) {
+                const sunIcon = themeToggle.querySelector('.fa-sun')
+                const moonIcon = themeToggle.querySelector('.fa-moon')
+                
+                if (savedTheme === 'dark') {
+                    if (sunIcon) sunIcon.style.display = 'inline-block'
+                    if (moonIcon) moonIcon.style.display = 'none'
+                } else {
+                    if (sunIcon) sunIcon.style.display = 'none'
+                    if (moonIcon) moonIcon.style.display = 'inline-block'
+                }
+            }
+            
+            // Update content language
+            updateLanguageContent(savedLanguage)
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📊 Status page loaded, initializing...')
+            
+            // Initialize page settings first
+            initializePageSettings()
+            
+            // Initialize toggles
+            initializeToggles()
+            
+            // Get booking data from localStorage
+            const bookingDataStr = localStorage.getItem('bookingData')
+            if (!bookingDataStr) {
+                console.log('❌ No booking data found in localStorage')
+                
+                // Show error message to user
+                const mainContent = document.getElementById('main-content')
+                if (mainContent) {
+                    mainContent.innerHTML = `
+                        <div class="status-card" style="text-align: center; padding: 2rem;">
+                            <div class="error-icon" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h2 data-ar="لا توجد بيانات حجز" data-en="No Booking Data Found">لا توجد بيانات حجز</h2>
+                            <p data-ar="لم يتم العثور على بيانات الحجز. يرجى إجراء حجز جديد." data-en="No booking data was found. Please make a new booking.">لم يتم العثور على بيانات الحجز. يرجى إجراء حجز جديد.</p>
+                            <div style="margin-top: 2rem;">
+                                <a href="companies.html" class="btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    <span data-ar="حجز جديد" data-en="New Booking">حجز جديد</span>
+                                </a>
+                                <a href="index.html" class="btn-secondary" style="margin-left: 1rem;">
+                                    <i class="fas fa-home"></i>
+                                    <span data-ar="العودة للرئيسية" data-en="Go Home">العودة للرئيسية</span>
+                                </a>
+                            </div>
+                        </div>
+                    `
+                    // Update language content for error message
+                    updateLanguageContent(document.documentElement.lang || 'ar')
+                }
+                
+                return
+            }
+            
+            try {
+                const bookingData = JSON.parse(bookingDataStr)
+                console.log('✅ Booking data loaded successfully:', bookingData)
+                
+                // Update page with booking data
+                updateStatusPageContent(bookingData)
+                
+            } catch (error) {
+                console.error('❌ Error parsing booking data:', error)
+                
+                // Show error message to user
+                const mainContent = document.getElementById('main-content')
+                if (mainContent) {
+                    mainContent.innerHTML = `
+                        <div class="status-card" style="text-align: center; padding: 2rem;">
+                            <div class="error-icon" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h2 data-ar="خطأ في البيانات" data-en="Data Error">خطأ في البيانات</h2>
+                            <p data-ar="حدث خطأ في قراءة بيانات الحجز. يرجى المحاولة مرة أخرى." data-en="An error occurred reading booking data. Please try again.">حدث خطأ في قراءة بيانات الحجز. يرجى المحاولة مرة أخرى.</p>
+                            <div style="margin-top: 2rem;">
+                                <a href="companies.html" class="btn-primary">
+                                    <i class="fas fa-plus"></i>
+                                    <span data-ar="حجز جديد" data-en="New Booking">حجز جديد</span>
+                                </a>
+                                <a href="index.html" class="btn-secondary" style="margin-left: 1rem;">
+                                    <i class="fas fa-home"></i>
+                                    <span data-ar="العودة للرئيسية" data-en="Go Home">العودة للرئيسية</span>
+                                </a>
+                            </div>
+                        </div>
+                    `
+                    // Update language content for error message
+                    updateLanguageContent(document.documentElement.lang || 'ar')
+                }
+            }
+        })
+    </script>
 </body>
 </html>

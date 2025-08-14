@@ -6,7 +6,9 @@
     <title>Book Appointment - Dorak.net</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Add EmailJS SDK FIRST -->
+    <!-- Adding Google Fonts for Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load EmailJS first -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -16,9 +18,13 @@
             <div class="header-top">
                 <div class="government-badge">
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Official Government Service</span>
+                    <span data-en="Official Government Service" data-ar="خدمة حكومية رسمية">Official Government Service</span>
                 </div>
                 <div class="header-controls">
+                    <!-- Adding language toggle button -->
+                    <button id="languageToggle" class="language-toggle" title="Switch Language" aria-label="Switch between Arabic and English">
+                        <span class="lang-text" data-en="عربي" data-ar="English">عربي</span>
+                    </button>
                     <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                         <i class="fas fa-moon" aria-hidden="true"></i>
@@ -31,12 +37,12 @@
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div class="logo-text">
                             <h1>Dorak.net</h1>
-                            <p>Digital Queue Management System</p>
+                            <p data-en="Digital Queue Management System" data-ar="نظام إدارة الطوابير الرقمي">Digital Queue Management System</p>
                         </div>
                     </div>
                     <div class="egypt-emblem">
                         <i class="fas fa-eagle" aria-hidden="true"></i>
-                        <span>Arab Republic of Egypt</span>
+                        <span data-en="Arab Republic of Egypt" data-ar="جمهورية مصر العربية">Arab Republic of Egypt</span>
                     </div>
                 </div>
             </div>
@@ -45,10 +51,10 @@
         <!-- Breadcrumb -->
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="companies.html">Select Service</a></li>
-                <li><a href="branches.html">Select Branch</a></li>
-                <li aria-current="page">Book Appointment</li>
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-en="Home" data-ar="الرئيسية">Home</span></a></li>
+                <li><a href="companies.html" data-en="Select Service" data-ar="اختر الخدمة">Select Service</a></li>
+                <li><a href="branches.html" data-en="Select Branch" data-ar="اختر الفرع">Select Branch</a></li>
+                <li aria-current="page" data-en="Book Appointment" data-ar="حجز موعد">Book Appointment</li>
             </ol>
         </nav>
 
@@ -61,96 +67,111 @@
                         <div id="branchIcon" class="provider-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3 id="selectedBranch">Selected Branch</h3>
-                        <p id="selectedCompany">Selected Company</p>
+                        <h3 id="selectedBranch" data-en="Selected Branch" data-ar="الفرع المختار">Selected Branch</h3>
+                        <p id="selectedCompany" data-en="Selected Company" data-ar="الشركة المختارة">Selected Company</p>
                     </div>
                 </div>
                 
                 <div class="branch-stats">
                     <div class="stat">
                         <span class="stat-number" id="currentNumber">0</span>
-                        <span class="stat-label">Current</span>
+                        <span class="stat-label" data-en="Current" data-ar="الحالي">Current</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number" id="waitingCount">0</span>
-                        <span class="stat-label">Waiting</span>
+                        <span class="stat-label" data-en="Waiting" data-ar="في الانتظار">Waiting</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number" id="estimatedTime">0</span>
-                        <span class="stat-label">Est. Time (min)</span>
+                        <span class="stat-label" data-en="Est. Time (min)" data-ar="الوقت المتوقع (دقيقة)">Est. Time (min)</span>
                     </div>
                 </div>
                 
                 <div class="info-item">
                     <i class="fas fa-info-circle"></i>
                     <div>
-                        <strong>Important:</strong> Please arrive 10 minutes before your estimated time. 
-                        You will receive real-time updates on your queue position.
+                        <strong data-en="Important:" data-ar="مهم:">Important:</strong> 
+                        <span data-en="Please arrive 10 minutes before your estimated time. You will receive real-time updates on your queue position." 
+                              data-ar="يرجى الحضور قبل 10 دقائق من الوقت المتوقع. ستتلقى تحديثات فورية حول موقعك في الطابور.">
+                            Please arrive 10 minutes before your estimated time. You will receive real-time updates on your queue position.
+                        </span>
                     </div>
                 </div>
             </div>
 
             <!-- Booking Form Card -->
             <div class="booking-form-card">
-                <h3>Complete Your Booking</h3>
+                <h3 data-en="Complete Your Booking" data-ar="أكمل حجزك">Complete Your Booking</h3>
                 
+                <!-- Removed inline script and connected to main handleBookingSubmission function -->
                 <form id="bookingForm" class="booking-form">
                     <div class="form-group">
                         <label for="fullName">
                             <i class="fas fa-user"></i>
-                            Full Name
+                            <span data-en="Full Name" data-ar="الاسم الكامل">Full Name</span>
                         </label>
                         <input type="text" id="fullName" name="fullName" required 
+                               data-placeholder-en="Enter your full name as in ID"
+                               data-placeholder-ar="أدخل اسمك الكامل كما هو في البطاقة"
                                placeholder="Enter your full name as in ID">
                     </div>
 
                     <div class="form-group">
                         <label for="nationalId">
                             <i class="fas fa-id-card"></i>
-                            National ID
+                            <span data-en="National ID" data-ar="الرقم القومي">National ID</span>
                         </label>
                         <input type="text" id="nationalId" name="nationalId" required 
+                               data-placeholder-en="14-digit National ID number"
+                               data-placeholder-ar="الرقم القومي المكون من 14 رقم"
                                placeholder="14-digit National ID number" maxlength="14">
                     </div>
 
                     <div class="form-group">
                         <label for="phoneNumber">
                             <i class="fas fa-phone"></i>
-                            Phone Number
+                            <span data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</span>
                         </label>
                         <input type="tel" id="phoneNumber" name="phoneNumber" required 
+                               data-placeholder-en="01XXXXXXXXX"
+                               data-placeholder-ar="01XXXXXXXXX"
                                placeholder="01XXXXXXXXX" maxlength="11">
                     </div>
 
                     <div class="form-group">
                         <label for="email">
                             <i class="fas fa-envelope"></i>
-                            Email Address
+                            <span data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</span>
                         </label>
                         <input type="email" id="email" name="email" required 
+                               data-placeholder-en="Enter your email address"
+                               data-placeholder-ar="أدخل بريدك الإلكتروني"
                                placeholder="Enter your email address">
-                        <small class="email-note">You will receive a confirmation email with your appointment details</small>
+                        <small class="email-note" data-en="You will receive a confirmation email with your appointment details" 
+                               data-ar="ستتلقى رسالة تأكيد بالبريد الإلكتروني تحتوي على تفاصيل موعدك">
+                            You will receive a confirmation email with your appointment details
+                        </small>
                     </div>
 
                     <div class="form-group">
                         <label for="serviceType">
                             <i class="fas fa-cogs"></i>
-                            Service Type
+                            <span data-en="Service Type" data-ar="نوع الخدمة">Service Type</span>
                         </label>
                         <select id="serviceType" name="serviceType" required>
-                            <option value="">Select service type</option>
-                            <option value="new-connection">New Connection</option>
-                            <option value="bill-payment">Bill Payment</option>
-                            <option value="technical-support">Technical Support</option>
-                            <option value="maintenance">Maintenance Request</option>
-                            <option value="complaint">File Complaint</option>
-                            <option value="other">Other</option>
+                            <option value="" data-en="Select service type" data-ar="اختر نوع الخدمة">Select service type</option>
+                            <option value="new-connection" data-en="New Connection" data-ar="توصيل جديد">New Connection</option>
+                            <option value="bill-payment" data-en="Bill Payment" data-ar="دفع فاتورة">Bill Payment</option>
+                            <option value="technical-support" data-en="Technical Support" data-ar="الدعم الفني">Technical Support</option>
+                            <option value="maintenance" data-en="Maintenance Request" data-ar="طلب صيانة">Maintenance Request</option>
+                            <option value="complaint" data-en="File Complaint" data-ar="تقديم شكوى">File Complaint</option>
+                            <option value="other" data-en="Other" data-ar="أخرى">Other</option>
                         </select>
                     </div>
 
                     <button type="submit" class="submit-btn">
                         <i class="fas fa-calendar-check"></i>
-                        Confirm Booking
+                        <span data-en="Confirm Booking" data-ar="تأكيد الحجز">Confirm Booking</span>
                     </button>
                 </form>
             </div>
@@ -160,43 +181,234 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Government Links</h3>
+                    <h3 data-en="Government Links" data-ar="روابط حكومية">Government Links</h3>
                     <ul>
-                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
-                        <li><a href="#" rel="external">Ministry of Housing</a></li>
-                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Electricity" data-ar="وزارة الكهرباء">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Housing" data-ar="وزارة الإسكان">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Communications" data-ar="وزارة الاتصالات">Ministry of Communications</a></li>
                         <li><a href="#" rel="external">Egypt.gov.eg</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
                     <ul>
-                        <li><a href="companies.html">Book Appointment</a></li>
-                        <li><a href="status.html">Check Status</a></li>
-                        <li><a href="index.html#support">Support</a></li>
-                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="companies.html" data-en="Book Appointment" data-ar="حجز موعد">Book Appointment</a></li>
+                        <li><a href="status.html" data-en="Check Status" data-ar="تحقق من الحالة">Check Status</a></li>
+                        <li><a href="index.html#support" data-en="Support" data-ar="الدعم">Support</a></li>
+                        <li><a href="admin.html" data-en="Admin Portal" data-ar="بوابة الإدارة">Admin Portal</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3 data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</h3>
                     <address>
-                        <p>Digital Government Services</p>
-                        <p>Cairo, Arab Republic of Egypt</p>
-                        <p>Phone: <a href="tel:16000">16000</a></p>
-                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                        <p data-en="Digital Government Services" data-ar="الخدمات الحكومية الرقمية">Digital Government Services</p>
+                        <p data-en="Cairo, Arab Republic of Egypt" data-ar="القاهرة، جمهورية مصر العربية">Cairo, Arab Republic of Egypt</p>
+                        <p data-en="Phone:" data-ar="الهاتف:">Phone: <a href="tel:16000">16000</a></p>
+                        <p data-en="Email:" data-ar="البريد الإلكتروني:">Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
                     </address>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <p data-en="© 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved." 
+                data-ar="© 2024 جمهورية مصر العربية - الخدمات الحكومية الرقمية. جميع الحقوق محفوظة.">
+                    &copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.
+                </p>
             </div>
         </footer>
     </div>
 
-    <!-- Load your script AFTER EmailJS -->
+    <!-- Load script.js and initialize properly -->
     <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Booking page loaded, initializing...')
+            
+            if (typeof window.currentLanguage === 'undefined') {
+                window.currentLanguage = localStorage.getItem("language") || "en"
+            }
+            
+            console.log('Current language set to:', window.currentLanguage)
+            
+            // Initialize EmailJS with proper error handling
+            if (window.emailjs) {
+                try {
+                    emailjs.init("48UXqCoHHV2pt15nc")
+                    window.emailjs.isInitialized = true
+                    console.log('✅ EmailJS initialized successfully')
+                } catch (error) {
+                    console.error('❌ EmailJS initialization failed:', error)
+                    // Try to initialize again after a short delay
+                    setTimeout(() => {
+                        try {
+                            if (window.emailjs && !window.emailjs.isInitialized) {
+                                emailjs.init("48UXqCoHHV2pt15nc")
+                                window.emailjs.isInitialized = true
+                                console.log('✅ EmailJS initialized on retry')
+                            }
+                        } catch (retryError) {
+                            console.error('❌ EmailJS initialization retry failed:', retryError)
+                        }
+                    }, 1000)
+                }
+            } else {
+                console.warn('⚠️ EmailJS library not loaded, waiting for it to load...')
+                // Wait for EmailJS to load and then initialize
+                let emailjsCheckCount = 0
+                const emailjsCheckInterval = setInterval(() => {
+                    emailjsCheckCount++
+                    if (window.emailjs) {
+                        try {
+                            emailjs.init("48UXqCoHHV2pt15nc")
+                            window.emailjs.isInitialized = true
+                            console.log('✅ EmailJS initialized after waiting')
+                            clearInterval(emailjsCheckInterval)
+                        } catch (error) {
+                            console.error('❌ EmailJS initialization failed after waiting:', error)
+                        }
+                    } else if (emailjsCheckCount > 10) {
+                        console.error('❌ EmailJS failed to load after 10 attempts')
+                        clearInterval(emailjsCheckInterval)
+                    }
+                }, 500)
+            }
+            
+            // Get selected company and branch from localStorage
+            const selectedCompanyId = localStorage.getItem('selectedCompany')
+            const selectedBranchId = localStorage.getItem('selectedBranch')
+            
+            console.log('Selected company:', selectedCompanyId)
+            console.log('Selected branch:', selectedBranchId)
+            
+            if (!selectedCompanyId) {
+                console.error('No company selected, redirecting to companies page')
+                alert(window.currentLanguage === "ar" ? "لم يتم اختيار شركة. سيتم إعادة التوجيه..." : "No company selected. Redirecting...")
+                setTimeout(() => {
+                    window.location.href = 'companies.html'
+                }, 2000)
+                return
+            }
+            
+            if (!selectedBranchId) {
+                console.error('No branch selected, redirecting to branches page')
+                alert(window.currentLanguage === "ar" ? "لم يتم اختيار فرع. سيتم إعادة التوجيه..." : "No branch selected. Redirecting...")
+                setTimeout(() => {
+                    window.location.href = 'branches.html'
+                }, 2000)
+                return
+            }
+            
+            // Load companies data
+            if (!window.companies) {
+                window.companies = loadCompaniesData()
+            }
+            
+            const company = window.companies[selectedCompanyId]
+            const branch = company ? company.branches.find(b => b.id == selectedBranchId) : null
+            
+            if (!company || !branch) {
+                console.error('Invalid company or branch data')
+                alert(window.currentLanguage === "ar" ? "بيانات غير صحيحة. سيتم إعادة التوجيه..." : "Invalid data. Redirecting...")
+                setTimeout(() => {
+                    window.location.href = 'companies.html'
+                }, 2000)
+                return
+            }
+            
+            console.log('Company data:', company)
+            console.log('Branch data:', branch)
+            
+            // Update page content with selected data
+            updateBookingPageContent(company, branch, selectedCompanyId)
+            
+            const bookingForm = document.getElementById('bookingForm')
+            if (bookingForm) {
+                console.log('📝 Attaching form submission handler...')
+                
+                bookingForm.addEventListener('submit', function(e) {
+                    console.log('🎯 Form submit event triggered!')
+                    console.log('Event details:', {
+                        type: e.type,
+                        target: e.target,
+                        currentTarget: e.currentTarget
+                    })
+                    
+                    try {
+                        if (typeof handleBookingSubmission === 'function') {
+                            console.log('✅ Calling handleBookingSubmission function')
+                            handleBookingSubmission(e)
+                        } else {
+                            console.error('❌ handleBookingSubmission function not found!')
+                            console.log('Available functions:', Object.getOwnPropertyNames(window).filter(name => typeof window[name] === 'function'))
+                            e.preventDefault()
+                            alert(window.currentLanguage === "ar" ? "خطأ في النظام. يرجى تحديث الصفحة والمحاولة مرة أخرى." : "System error. Please refresh the page and try again.")
+                        }
+                    } catch (error) {
+                        console.error('❌ Error in form submission handler:', error)
+                        console.error('Error stack:', error.stack)
+                        e.preventDefault()
+                        alert(window.currentLanguage === "ar" ? "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى." : "An unexpected error occurred. Please try again.")
+                    }
+                })
+                
+                console.log('✅ Form submission handler attached successfully')
+            } else {
+                console.error('❌ Booking form not found!')
+            }
+            
+            const submitBtn = document.querySelector('.submit-btn')
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function(e) {
+                    console.log('🖱️ Submit button clicked directly')
+                    // Let the form submission handle it
+                })
+            }
+        })
+        
+        function updateBookingPageContent(company, branch, companyId) {
+            try {
+                // Update branch icon based on company type
+                const branchIcon = document.getElementById('branchIcon')
+                if (branchIcon) {
+                    const iconElement = branchIcon.querySelector('i')
+                    if (iconElement && company.icon) {
+                        iconElement.className = company.icon
+                    }
+                    branchIcon.className = `provider-icon ${companyId}`
+                }
+                
+                // Update selected branch name
+                const selectedBranchElement = document.getElementById('selectedBranch')
+                if (selectedBranchElement) {
+                    const branchName = (window.currentLanguage === 'ar') ? branch.nameAr : branch.name
+                    selectedBranchElement.textContent = branchName
+                }
+                
+                // Update selected company name
+                const selectedCompanyElement = document.getElementById('selectedCompany')
+                if (selectedCompanyElement) {
+                    const companyName = (window.currentLanguage === 'ar') ? company.nameAr : company.fullName
+                    selectedCompanyElement.textContent = companyName
+                }
+                
+                // Update branch statistics
+                document.getElementById('currentNumber').textContent = branch.currentNumber || 0
+                document.getElementById('waitingCount').textContent = branch.waiting || 0
+                document.getElementById('estimatedTime').textContent = branch.estimatedTime || 0
+                
+                console.log('✅ Booking page content updated successfully')
+                
+            } catch (error) {
+                console.error('❌ Error updating booking page content:', error)
+            }
+        }
+        
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>

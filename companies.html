@@ -6,6 +6,8 @@
     <title>Select Service - Dorak.net</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Adding Google Fonts for Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -14,9 +16,14 @@
             <div class="header-top">
                 <div class="government-badge">
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                    <span>Official Government Service</span>
+                    <!-- Adding Arabic language support with data attributes -->
+                    <span data-en="Official Government Service" data-ar="خدمة حكومية رسمية">Official Government Service</span>
                 </div>
                 <div class="header-controls">
+                    <!-- Adding language toggle button -->
+                    <button id="languageToggle" class="language-toggle" title="Switch Language" aria-label="Switch between Arabic and English">
+                        <span class="lang-text" data-en="عربي" data-ar="English">عربي</span>
+                    </button>
                     <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Switch between light and dark theme">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                         <i class="fas fa-moon" aria-hidden="true"></i>
@@ -29,12 +36,14 @@
                         <i class="fas fa-clock" aria-hidden="true"></i>
                         <div class="logo-text">
                             <h1>Dorak.net</h1>
-                            <p>Digital Queue Management System</p>
+                            <!-- Adding Arabic translation -->
+                            <p data-en="Digital Queue Management System" data-ar="نظام إدارة الطوابير الرقمي">Digital Queue Management System</p>
                         </div>
                     </div>
                     <div class="egypt-emblem">
                         <i class="fas fa-eagle" aria-hidden="true"></i>
-                        <span>Arab Republic of Egypt</span>
+                        <!-- Adding Arabic translation -->
+                        <span data-en="Arab Republic of Egypt" data-ar="جمهورية مصر العربية">Arab Republic of Egypt</span>
                     </div>
                 </div>
             </div>
@@ -43,8 +52,9 @@
         <!-- Breadcrumb -->
         <nav class="breadcrumb-nav" aria-label="Breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li aria-current="page">Select Service</li>
+                <li><a href="index.html"><i class="fas fa-home"></i> <span data-en="Home" data-ar="الرئيسية">Home</span></a></li>
+                <!-- Adding Arabic translation -->
+                <li aria-current="page" data-en="Select Service" data-ar="اختر الخدمة">Select Service</li>
             </ol>
         </nav>
 
@@ -52,8 +62,9 @@
         <main class="page-section">
             <div class="section-container">
                 <div class="page-header">
-                    <h2>Select Government Service</h2>
-                    <p>Choose the service you need to book your appointment</p>
+                    <!-- Adding Arabic translations for page header -->
+                    <h2 data-en="Select Government Service" data-ar="اختر الخدمة الحكومية">Select Government Service</h2>
+                    <p data-en="Choose the service you need to book your appointment" data-ar="اختر الخدمة التي تحتاجها لحجز موعدك">Choose the service you need to book your appointment</p>
                 </div>
 
                 <div class="service-providers-grid">
@@ -64,27 +75,29 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <!-- Adding Arabic translation -->
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Electricity Services</h3>
-                            <p class="provider-subtitle">Egyptian Electricity Holding Company</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for electricity service -->
+                            <h3 data-en="Electricity Services" data-ar="خدمات الكهرباء">Electricity Services</h3>
+                            <p class="provider-subtitle" data-en="Egyptian Electricity Holding Company" data-ar="الشركة القابضة لكهرباء مصر">Egyptian Electricity Holding Company</p>
+                            <p class="provider-description" data-en="Manage electricity connections, bill payments, meter readings, and technical support requests." data-ar="إدارة توصيلات الكهرباء، دفع الفواتير، قراءات العدادات، وطلبات الدعم الفني.">
                                 Manage electricity connections, bill payments, meter readings, and technical support requests.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">25</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">80min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -100,27 +113,28 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Water & Wastewater</h3>
-                            <p class="provider-subtitle">Water & Wastewater Services</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for water service -->
+                            <h3 data-en="Water & Wastewater" data-ar="المياه والصرف الصحي">Water & Wastewater</h3>
+                            <p class="provider-subtitle" data-en="Water & Wastewater Services" data-ar="خدمات المياه والصرف الصحي">Water & Wastewater Services</p>
+                            <p class="provider-description" data-en="Water connection services, billing, quality testing, and maintenance requests." data-ar="خدمات توصيل المياه، الفواتير، اختبار الجودة، وطلبات الصيانة.">
                                 Water connection services, billing, quality testing, and maintenance requests.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">24</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">80min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -136,27 +150,28 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Natural Gas</h3>
-                            <p class="provider-subtitle">Egyptian Natural Gas Company</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for gas service -->
+                            <h3 data-en="Natural Gas" data-ar="الغاز الطبيعي">Natural Gas</h3>
+                            <p class="provider-subtitle" data-en="Egyptian Natural Gas Company" data-ar="شركة الغاز الطبيعي المصرية">Egyptian Natural Gas Company</p>
+                            <p class="provider-description" data-en="Gas connection applications, safety inspections, meter installations, and emergency services." data-ar="طلبات توصيل الغاز، فحوصات السلامة، تركيب العدادات، وخدمات الطوارئ.">
                                 Gas connection applications, safety inspections, meter installations, and emergency services.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">26</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">87min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -172,27 +187,28 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Telecommunications</h3>
-                            <p class="provider-subtitle">Telecom Egypt Services</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for telecom service -->
+                            <h3 data-en="Telecommunications" data-ar="الاتصالات">Telecommunications</h3>
+                            <p class="provider-subtitle" data-en="Telecom Egypt Services" data-ar="خدمات تليكوم مصر">Telecom Egypt Services</p>
+                            <p class="provider-description" data-en="Landline installations, internet service setup, technical support, and service upgrades." data-ar="تركيب الخطوط الأرضية، إعداد خدمة الإنترنت، الدعم الفني، وترقيات الخدمة.">
                                 Landline installations, internet service setup, technical support, and service upgrades.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">40</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">133min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -208,27 +224,28 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Internet Services</h3>
-                            <p class="provider-subtitle">Internet Service Providers</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for internet service -->
+                            <h3 data-en="Internet Services" data-ar="خدمات الإنترنت">Internet Services</h3>
+                            <p class="provider-subtitle" data-en="Internet Service Providers" data-ar="مقدمو خدمة الإنترنت">Internet Service Providers</p>
+                            <p class="provider-description" data-en="Broadband connections, speed upgrades, technical troubleshooting, and business solutions." data-ar="اتصالات النطاق العريض، ترقيات السرعة، استكشاف الأخطاء الفنية، والحلول التجارية.">
                                 Broadband connections, speed upgrades, technical troubleshooting, and business solutions.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">3</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">33</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">110min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -244,27 +261,28 @@
                             </div>
                             <div class="provider-badge">
                                 <i class="fas fa-check"></i>
-                                <span>Available</span>
+                                <span data-en="Available" data-ar="متاح">Available</span>
                             </div>
                         </div>
                         <div class="provider-content">
-                            <h3>Test Company</h3>
-                            <p class="provider-subtitle">Test Company Services</p>
-                            <p class="provider-description">
+                            <!-- Adding Arabic translations for test service -->
+                            <h3 data-en="Test Company" data-ar="شركة الاختبار">Test Company</h3>
+                            <p class="provider-subtitle" data-en="Test Company Services" data-ar="خدمات شركة الاختبار">Test Company Services</p>
+                            <p class="provider-description" data-en="Testing and quality assurance services for various government applications and systems." data-ar="خدمات الاختبار وضمان الجودة لمختلف التطبيقات والأنظمة الحكومية.">
                                 Testing and quality assurance services for various government applications and systems.
                             </p>
                             <div class="provider-stats">
                                 <div class="stat-item">
                                     <span class="stat-number">5</span>
-                                    <span class="stat-label">Branches</span>
+                                    <span class="stat-label" data-en="Branches" data-ar="الفروع">Branches</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">22</span>
-                                    <span class="stat-label">In Queue</span>
+                                    <span class="stat-label" data-en="In Queue" data-ar="في الطابور">In Queue</span>
                                 </div>
                                 <div class="stat-item">
                                     <span class="stat-number">44min</span>
-                                    <span class="stat-label">Avg Wait</span>
+                                    <span class="stat-label" data-en="Avg Wait" data-ar="متوسط الانتظار">Avg Wait</span>
                                 </div>
                             </div>
                         </div>
@@ -278,9 +296,10 @@
                     <div class="help-card">
                         <i class="fas fa-question-circle"></i>
                         <div class="help-content">
-                            <h3>Need Help Choosing?</h3>
-                            <p>Not sure which service you need? Our support team can help you find the right government service for your needs.</p>
-                            <a href="tel:16000" class="help-link">Call 16000 for assistance</a>
+                            <!-- Adding Arabic translations for help section -->
+                            <h3 data-en="Need Help Choosing?" data-ar="تحتاج مساعدة في الاختيار؟">Need Help Choosing?</h3>
+                            <p data-en="Not sure which service you need? Our support team can help you find the right government service for your needs." data-ar="غير متأكد من الخدمة التي تحتاجها؟ يمكن لفريق الدعم لدينا مساعدتك في العثور على الخدمة الحكومية المناسبة لاحتياجاتك.">Not sure which service you need? Our support team can help you find the right government service for your needs.</p>
+                            <a href="tel:16000" class="help-link" data-en="Call 16000 for assistance" data-ar="اتصل بـ 16000 للمساعدة">Call 16000 for assistance</a>
                         </div>
                     </div>
                 </div>
@@ -291,38 +310,42 @@
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Government Links</h3>
+                    <!-- Adding Arabic translations for footer -->
+                    <h3 data-en="Government Links" data-ar="روابط حكومية">Government Links</h3>
                     <ul>
-                        <li><a href="#" rel="external">Ministry of Electricity</a></li>
-                        <li><a href="#" rel="external">Ministry of Housing</a></li>
-                        <li><a href="#" rel="external">Ministry of Communications</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Electricity" data-ar="وزارة الكهرباء">Ministry of Electricity</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Housing" data-ar="وزارة الإسكان">Ministry of Housing</a></li>
+                        <li><a href="#" rel="external" data-en="Ministry of Communications" data-ar="وزارة الاتصالات">Ministry of Communications</a></li>
                         <li><a href="#" rel="external">Egypt.gov.eg</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Services</h3>
+                    <h3 data-en="Services" data-ar="الخدمات">Services</h3>
                     <ul>
-                        <li><a href="companies.html">Book Appointment</a></li>
-                        <li><a href="status.html">Check Status</a></li>
-                        <li><a href="index.html#support">Support</a></li>
-                        <li><a href="admin.html">Admin Portal</a></li>
+                        <li><a href="companies.html" data-en="Book Appointment" data-ar="حجز موعد">Book Appointment</a></li>
+                        <li><a href="status.html" data-en="Check Status" data-ar="تحقق من الحالة">Check Status</a></li>
+                        <li><a href="index.html#support" data-en="Support" data-ar="الدعم">Support</a></li>
+                        <li><a href="admin.html" data-en="Admin Portal" data-ar="بوابة الإدارة">Admin Portal</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Information</h3>
+                    <h3 data-en="Contact Information" data-ar="معلومات الاتصال">Contact Information</h3>
                     <address>
-                        <p>Digital Government Services</p>
-                        <p>Cairo, Arab Republic of Egypt</p>
-                        <p>Phone: <a href="tel:16000">16000</a></p>
-                        <p>Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
+                        <p data-en="Digital Government Services" data-ar="الخدمات الحكومية الرقمية">Digital Government Services</p>
+                        <p data-en="Cairo, Arab Republic of Egypt" data-ar="القاهرة، جمهورية مصر العربية">Cairo, Arab Republic of Egypt</p>
+                        <p data-en="Phone:" data-ar="الهاتف:">Phone: <a href="tel:16000">16000</a></p>
+                        <p data-en="Email:" data-ar="البريد الإلكتروني:">Email: <a href="mailto:info@dorak.gov.eg">info@dorak.gov.eg</a></p>
                     </address>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.</p>
+                <p data-en="© 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved." 
+                data-ar="© 2024 جمهورية مصر العربية - الخدمات الحكومية الرقمية. جميع الحقوق محفوظة.">
+                    &copy; 2024 Arab Republic of Egypt - Digital Government Services. All rights reserved.
+                </p>
             </div>
         </footer>
     </div>
